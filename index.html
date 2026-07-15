@@ -1,672 +1,959 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
 
-  <title>EKAM YOGA</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
 
-  <link rel="stylesheet" href="style-1.css" />
-</head>
+    <title>EKAM YOGA</title>
 
-<body>
+    <link rel="stylesheet" href="style-1.css" />
+  </head>
 
-  <header>
-    <nav>
-      <h1>EKAM YOGA</h1>
+  <body>
+    <header>
+      <nav>
+        <div class="brand">
+          <h1>EKAM YOGA</h1>
 
-      <button
-        class="menu-toggle"
-        type="button"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-        aria-controls="nav-menu"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+          <img
+            src="pic/ekam.svg.webp"
+            alt=""
+            class="brand-glyph"
+            aria-hidden="true"
+          />
+        </div>
 
-      <ul id="nav-menu" class="nav-menu">
-        <li>
-          <a href="#home" class="nav-link active">Home</a>
-        </li>
-
-        <li>
-          <a href="#practice" class="nav-link">The Practice</a>
-        </li>
-
-        <li>
-          <a href="#schedule" class="nav-link">Schedule</a>
-        </li>
-
-        <li>
-          <a href="#about" class="nav-link">About Me</a>
-        </li>
-
-        <li>
-          <a href="#contact" class="nav-link">Contact</a>
-        </li>
-
-        <span class="nav-indicator" aria-hidden="true"></span>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-
-    <section id="home" class="intro-section">
-
-      <div class="home-slideshow" aria-hidden="true">
-        <img
-          src="pic/pic_1.jpg"
-          alt=""
-          class="home-slide is-visible"
-        />
-
-        <img
-          src="pic/pic_2.jpeg"
-          alt=""
-          class="home-slide"
-        />
-
-        <img
-          src="pic/pic_3.jpg"
-          alt=""
-          class="home-slide"
-        />
-
-        <img
-          src="pic/pic_4.jpg"
-          alt=""
-          class="home-slide"
-        />
-
-        <img
-          src="pic/pic_5.jpg"
-          alt=""
-          class="home-slide"
-        />
-      </div>
-
-      <div class="home-shade"></div>
-
-      <div class="intro-content">
-        <h2>Find Balance, Peace, and Strength</h2>
-
-        <p>
-          Move through a structured, breath-led practice cultivating strength,
-          stability and focus.
-        </p>
-
-        <a
-          href="mailto:info-ekamyoga@gmail.com"
-          class="btn"
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="nav-menu"
         >
-          Get in Touch
-        </a>
-      </div>
-    </section>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
 
-    <section id="practice" class="section practice-section">
-      <h2>Ashtanga Yoga</h2>
+        <ul id="nav-menu" class="nav-menu">
+          <li>
+            <a
+              href="#home"
+              class="nav-link active"
+            >
+              Home
+            </a>
+          </li>
 
-      <p>
-        Ashtanga Yoga is a structured, breath-led practice that links movement
-        with a steady sequence of postures. Each position flows into the next
-        through coordinated transitions, creating a continuous rhythm of
-        strength, mobility, balance, and concentration. The repeated sequence
-        offers a clear framework while allowing the practitioner to notice
-        gradual changes in breath, alignment, endurance, and awareness. The
-        practice can be adapted to individual experience and ability, making
-        progress steady rather than forced. Over time, Ashtanga Yoga may support
-        greater overall physical resilience, flexibility, focus, emotional
-        steadiness, and a deeper sense of connection between breath, body, and
-        attention during daily life.
-      </p>
-    </section>
+          <li>
+            <a
+              href="#practice"
+              class="nav-link"
+            >
+              The Practice
+            </a>
+          </li>
 
-    <section id="schedule" class="section">
-      <h2>Schedule</h2>
+          <li>
+            <a
+              href="#schedule"
+              class="nav-link"
+            >
+              Schedule
+            </a>
+          </li>
 
-      <div class="schedule-list">
-        <p class="schedule-time">
-          Tuesday morning: 6:30 AM–8:00 AM
-        </p>
+          <li>
+            <a
+              href="#about"
+              class="nav-link"
+            >
+              About Me
+            </a>
+          </li>
 
-        <p class="schedule-location">
-          Im Westfeld, Sankt Johann, Basel
-        </p>
+          <li>
+            <a
+              href="#contact"
+              class="nav-link"
+            >
+              Contact
+            </a>
+          </li>
 
-        <p class="schedule-invitation">
-          Come and try it out — your first lesson is free!
-        </p>
-      </div>
-    </section>
+          <span
+            class="nav-indicator"
+            aria-hidden="true"
+          ></span>
+        </ul>
+      </nav>
+    </header>
 
-    <section id="about" class="section about-section">
-      <img
-        src="pic/About.jpeg"
-        alt="Silvia practicing yoga"
-        class="about-bg-img"
-      />
+    <main>
+      <section
+        id="home"
+        class="intro-section"
+      >
+        <div
+          class="home-slideshow"
+          aria-hidden="true"
+        >
+          <img
+            src="pic/pic_1.jpg"
+            alt=""
+            class="home-slide is-visible"
+          />
 
-      <div class="about-shade"></div>
+          <img
+            src="pic/pic_2.jpeg"
+            alt=""
+            class="home-slide"
+          />
 
-      <div class="about-content">
+          <img
+            src="pic/pic_3.jpg"
+            alt=""
+            class="home-slide"
+          />
+
+          <img
+            src="pic/pic_4.jpg"
+            alt=""
+            class="home-slide"
+          />
+
+          <img
+            src="pic/pic_5.jpg"
+            alt=""
+            class="home-slide"
+          />
+        </div>
+
+        <div class="home-shade"></div>
+
+        <div class="intro-content">
+          <h2>Find Balance, Peace, Strength</h2>
+
+          <p>
+            Move through a structured, breath-led practice cultivating
+            resilience, stability and focus.
+          </p>
+
+          <a
+            href="mailto:info-ekamyoga@gmail.com"
+            class="btn"
+          >
+            Get in Touch
+          </a>
+        </div>
+      </section>
+
+      <section
+        id="practice"
+        class="section practice-section"
+      >
+        <h2>Ashtanga Yoga</h2>
+
+        <div class="scroll-image-box">
+          <img
+            src="pic/ashtanga.webp"
+            alt="Ashtanga yoga practice"
+            class="scroll-bg-img"
+          />
+
+          <div class="scroll-image-shade"></div>
+
+          <div class="scroll-image-content practice-content">
+            <p>
+              Ashtanga Yoga is a structured, breath-led practice that links
+              movement with a steady sequence of postures. Each position flows
+              into the next through coordinated transitions, creating a
+              continuous rhythm of strength, mobility, balance, and
+              concentration. The repeated sequence offers a clear framework
+              while allowing the practitioner to notice gradual changes in
+              breath, alignment, endurance, and awareness. The practice can be
+              adapted to individual experience and ability, making progress
+              steady rather than forced. Over time, Ashtanga Yoga may support
+              greater overall physical resilience, flexibility, focus,
+              emotional steadiness, and a deeper sense of connection between
+              breath, body, and attention during daily life.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="schedule"
+        class="section"
+      >
+        <h2>Schedule</h2>
+
+        <div class="schedule-list">
+          <p class="schedule-time">
+            Tuesday morning: 6:30 AM–8:00 AM
+          </p>
+
+          <p class="schedule-location">
+            Im Westfeld, Sankt Johann, Basel
+          </p>
+
+          <p class="schedule-invitation">
+            Come and try it out — your first lesson is free!
+          </p>
+        </div>
+      </section>
+
+      <section
+        id="about"
+        class="section about-section"
+      >
         <h2>About Me</h2>
 
-        <p>
-          I discovered Ashtanga yoga over 10 years ago, and it has been my daily
-          companion ever since. Yoga became my safe space, offering me a way to
-          step out of my mind and into my body, and it has been a steady support
-          through my studies, pregnancy, postpartum, and now motherhood.
-
-          Over the years, I cultivated my practice with dedicated teachers in
-          Italy and Boston, and further refined it through workshops and
-          in-depth retreats. I recently completed a 250 hours training with my
-          teachers Lucia and Roberto at Bottega Yoga in Bologna.
-
-          I believe Ashtanga yoga is a transformative path and, if practiced at
-          any level, can bring awareness and support to everyday life.
-          ~ This practice is too beautiful not to be shared.
-        </p>
-      </div>
-    </section>
-
-    <section id="contact" class="section contact-section">
-      <h2>Contact</h2>
-
-      <div class="social-links">
-
-        <a
-          class="social-link"
-          href="https://www.instagram.com/silvia.ashtangayoga/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Visit Silvia Ashtanga Yoga on Instagram"
-        >
+        <div class="scroll-image-box">
           <img
-            src="pic/Instagram_Glyph_White.svg"
-            alt=""
-            class="social-icon"
+            src="pic/About.jpeg"
+            alt="Silvia practicing yoga"
+            class="scroll-bg-img"
           />
-        </a>
 
-        <a
-          class="social-link"
-          href="https://wa.me/410123456789"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Contact EKAM YOGA on WhatsApp"
-        >
-          <img
-            src="pic/Print_Glyph_White_CMYK_2026.svg"
-            alt=""
-            class="social-icon"
-          />
-        </a>
+          <div class="scroll-image-shade"></div>
 
-        <a
-          class="social-link"
-          href="mailto:info-ekamyoga@gmail.com"
-          aria-label="Email EKAM YOGA"
-        >
-          <img
-            src="pic/email.svg"
-            alt=""
-            class="social-icon"
-          />
-        </a>
+          <div class="scroll-image-content about-content">
+            <p>
+              I discovered Ashtanga yoga over 10 years ago, and it has been my
+              daily companion ever since. Yoga became my safe space, offering me
+              a way to step out of my mind and into my body, and it has been a
+              steady support through my studies, pregnancy, postpartum, and now
+              motherhood.
 
-      </div>
+              Over the years, I cultivated my practice with dedicated teachers
+              in Italy and Boston, and further refined it through workshops and
+              in-depth retreats. I recently completed a 250 hours training with
+              my teachers Lucia and Roberto at Bottega Yoga in Bologna.
 
-      <a
-        class="location-link"
-        href="https://www.google.com/search?tbm=isch&q=Basel%2C+Switzerland"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="View images of Basel, Switzerland"
+              I believe Ashtanga yoga is a transformative path and, if practiced
+              at any level, can bring awareness and support to everyday life.
+              ~ This practice is too beautiful not to be shared.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="contact"
+        class="section contact-section"
       >
-        <img
-          src="pic/location-pointer-white-icon.svg"
-          alt=""
-          class="location-icon"
-        />
+        <h2>Contact</h2>
 
-        <span>Basel, Switzerland</span>
-      </a>
-    </section>
+        <div class="social-links">
+          <a
+            class="social-link"
+            href="https://www.instagram.com/silvia.ashtangayoga/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit Silvia Ashtanga Yoga on Instagram"
+          >
+            <img
+              src="pic/Instagram_Glyph_White.svg"
+              alt=""
+              class="social-icon"
+            />
+          </a>
 
-  </main>
+          <a
+            class="social-link"
+            href="https://wa.me/410123456789"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Contact EKAM YOGA on WhatsApp"
+          >
+            <img
+              src="pic/Print_Glyph_White_CMYK_2026.svg"
+              alt=""
+              class="social-icon"
+            />
+          </a>
 
-  <footer>
-    <p>&copy; 2026 EKAM YOGA. All rights reserved.</p>
-  </footer>
+          <a
+            class="social-link"
+            href="mailto:info-ekamyoga@gmail.com"
+            aria-label="Email EKAM YOGA"
+          >
+            <img
+              src="pic/email.svg"
+              alt=""
+              class="social-icon"
+            />
+          </a>
+        </div>
 
-  <script>
-    const colors = [
-      [104, 117, 109],
-      [161, 167, 158],
-      [222, 206, 191],
-      [244, 243, 241]
-    ];
+        <a
+          class="location-link"
+          href="https://www.google.com/search?tbm=isch&q=Basel%2C+Switzerland"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="View images of Basel, Switzerland"
+        >
+          <img
+            src="pic/location-pointer-white-icon.svg"
+            alt=""
+            class="location-icon"
+            aria-hidden="true"
+          />
 
-    const pageSections = Array.from(
-      document.querySelectorAll("main section[id]")
-    );
+          <span>Basel, Switzerland</span>
+        </a>
+      </section>
+    </main>
 
-    const navigationLinks = Array.from(
-      document.querySelectorAll(".nav-link")
-    );
+    <footer>
+      <p>&copy; 2026 EKAM YOGA. All rights reserved.</p>
+    </footer>
 
-    const navigationMenu =
-      document.querySelector(".nav-menu");
+    <script>
+      /*
+        Only the main page background fades.
 
-    const navigationIndicator =
-      document.querySelector(".nav-indicator");
+        Section backgrounds and text colors remain static.
+      */
+      const pagePalette = [
+        [104, 117, 109],
+        [161, 167, 158],
+        [222, 206, 191],
+        [244, 243, 241],
+      ];
 
-    const pageHeader =
-      document.querySelector("header");
-
-    let ticking = false;
-    let currentSectionId = "home";
-
-    function mixColor(color1, color2, amount) {
-      const r = Math.round(
-        color1[0] + (color2[0] - color1[0]) * amount
+      const pageSections = Array.from(
+        document.querySelectorAll(
+          "main section[id]",
+        ),
       );
 
-      const g = Math.round(
-        color1[1] + (color2[1] - color1[1]) * amount
+      const navigationLinks = Array.from(
+        document.querySelectorAll(
+          ".nav-link",
+        ),
       );
 
-      const b = Math.round(
-        color1[2] + (color2[2] - color1[2]) * amount
-      );
-
-      return `rgb(${r}, ${g}, ${b})`;
-    }
-
-    function updateBackgroundColor() {
-      const scrollTop = window.scrollY;
-
-      const maxScroll =
-        document.documentElement.scrollHeight -
-        window.innerHeight;
-
-      const scrollPercent =
-        maxScroll === 0
-          ? 0
-          : Math.min(Math.max(scrollTop / maxScroll, 0), 1);
-
-      const colorSteps =
-        colors.length - 1;
-
-      const exactIndex =
-        scrollPercent * colorSteps;
-
-      const startIndex =
-        Math.min(
-          Math.floor(exactIndex),
-          colors.length - 1
+      const navigationMenu =
+        document.querySelector(
+          ".nav-menu",
         );
 
-      const endIndex =
-        Math.min(startIndex + 1, colors.length - 1);
-
-      const amount =
-        exactIndex - startIndex;
-
-      document.body.style.backgroundColor =
-        mixColor(
-          colors[startIndex],
-          colors[endIndex],
-          amount
+      const navigationIndicator =
+        document.querySelector(
+          ".nav-indicator",
         );
-    }
 
-    function updateAboutImageScroll() {
-      const aboutSection =
-        document.querySelector(".about-section");
+      const pageHeader =
+        document.querySelector(
+          "header",
+        );
 
-      const aboutImage =
-        document.querySelector(".about-bg-img");
+      const rootElement =
+        document.documentElement;
 
-      if (!aboutSection || !aboutImage) {
-        return;
-      }
+      let ticking = false;
+      let currentSectionId = "home";
 
-      const sectionRect =
-        aboutSection.getBoundingClientRect();
-
-      const viewportHeight =
-        window.innerHeight;
-
-      if (
-        sectionRect.bottom < 0 ||
-        sectionRect.top > viewportHeight
+      function clamp(
+        value,
+        minimum,
+        maximum,
       ) {
-        return;
+        return Math.min(
+          Math.max(
+            value,
+            minimum,
+          ),
+          maximum,
+        );
       }
 
-      const sectionHeight =
-        aboutSection.offsetHeight;
-
-      const imageHeight =
-        aboutImage.offsetHeight;
-
-      const maxImageMovement =
-        Math.max(imageHeight - sectionHeight, 0);
-
-      const scrollStart =
-        viewportHeight;
-
-      const scrollEnd =
-        -sectionHeight;
-
-      const scrollRange =
-        scrollStart - scrollEnd;
-
-      let progress =
-        (scrollStart - sectionRect.top) /
-        scrollRange;
-
-      progress =
-        Math.max(0, Math.min(1, progress));
-
-      const movement =
-        -maxImageMovement * (1 - progress);
-
-      aboutImage.style.transform =
-        `translate3d(-50%, ${movement}px, 0)`;
-    }
-
-    function moveNavigationIndicator(activeLink) {
-      if (
-        !activeLink ||
-        !navigationMenu ||
-        !navigationIndicator
+      function mixColorValues(
+        color1,
+        color2,
+        amount,
       ) {
-        return;
+        return [
+          Math.round(
+            color1[0] +
+              (
+                color2[0] -
+                color1[0]
+              ) *
+                amount,
+          ),
+
+          Math.round(
+            color1[1] +
+              (
+                color2[1] -
+                color1[1]
+              ) *
+                amount,
+          ),
+
+          Math.round(
+            color1[2] +
+              (
+                color2[2] -
+                color1[2]
+              ) *
+                amount,
+          ),
+        ];
       }
 
-      const menuRect =
-        navigationMenu.getBoundingClientRect();
-
-      const linkRect =
-        activeLink.getBoundingClientRect();
-
-      const isMobile =
-        window.innerWidth <= 768;
-
-      let indicatorWidth;
-      let indicatorLeft;
-
-      if (isMobile) {
-        indicatorWidth = 42;
-
-        indicatorLeft =
-          linkRect.left -
-          menuRect.left +
-          (linkRect.width - indicatorWidth) / 2;
-      } else {
-        indicatorWidth =
-          linkRect.width;
-
-        indicatorLeft =
-          linkRect.left -
-          menuRect.left;
-      }
-
-      const indicatorTop =
-        linkRect.bottom -
-        menuRect.top -
-        1;
-
-      navigationIndicator.style.width =
-        `${indicatorWidth}px`;
-
-      navigationIndicator.style.left =
-        `${indicatorLeft}px`;
-
-      navigationIndicator.style.top =
-        `${indicatorTop}px`;
-    }
-
-    function setActiveNavigation(sectionId) {
-      const activeLink =
-        navigationLinks.find(
-          (link) =>
-            link.getAttribute("href") ===
-            `#${sectionId}`
-        );
-
-      if (!activeLink) {
-        return;
-      }
-
-      navigationLinks.forEach((link) => {
-        link.classList.toggle(
-          "active",
-          link === activeLink
-        );
-      });
-
-      currentSectionId =
-        sectionId;
-
-      moveNavigationIndicator(activeLink);
-    }
-
-    function updateActiveNavigation() {
-      if (pageSections.length === 0) {
-        return;
-      }
-
-      const headerHeight =
-        pageHeader
-          ? pageHeader.offsetHeight
-          : 0;
-
-      const activationPoint =
-        headerHeight +
-        window.innerHeight * 0.32;
-
-      let activeSection =
-        pageSections[0];
-
-      pageSections.forEach((section) => {
-        const sectionTop =
-          section.getBoundingClientRect().top;
-
-        if (sectionTop <= activationPoint) {
-          activeSection = section;
-        }
-      });
-
-      const pageBottom =
-        window.scrollY +
-        window.innerHeight;
-
-      const documentHeight =
-        document.documentElement.scrollHeight;
-
-      if (pageBottom >= documentHeight - 4) {
-        activeSection =
-          pageSections[pageSections.length - 1];
-      }
-
-      if (
-        activeSection &&
-        activeSection.id !== currentSectionId
+      function colorToCSS(
+        color,
       ) {
-        setActiveNavigation(activeSection.id);
-      }
-    }
-
-    function updatePageEffects() {
-      updateBackgroundColor();
-      updateAboutImageScroll();
-      updateActiveNavigation();
-
-      ticking = false;
-    }
-
-    function requestPageUpdate() {
-      if (ticking) {
-        return;
-      }
-
-      ticking = true;
-
-      window.requestAnimationFrame(
-        updatePageEffects
-      );
-    }
-
-    function startHomeSlideshow() {
-      const slides =
-        Array.from(
-          document.querySelectorAll(".home-slide")
+        return (
+          `rgb(${color[0]}, ${color[1]}, ${color[2]})`
         );
-
-      if (slides.length < 2) {
-        return;
       }
 
-      const displayTime = 5000;
-      const fadeTime = 2500;
+      function getPaletteColor(
+        palette,
+        progress,
+      ) {
+        const safeProgress =
+          clamp(
+            progress,
+            0,
+            1,
+          );
 
-      let currentIndex = 0;
-      let transitionInProgress = false;
+        const numberOfSegments =
+          palette.length - 1;
 
-      slides.forEach((slide, index) => {
-        slide.style.zIndex =
-          index === 0 ? "1" : "0";
-      });
+        const exactIndex =
+          safeProgress *
+          numberOfSegments;
 
-      window.setInterval(() => {
-        if (transitionInProgress) {
+        const startIndex =
+          Math.min(
+            Math.floor(
+              exactIndex,
+            ),
+            palette.length - 1,
+          );
+
+        const endIndex =
+          Math.min(
+            startIndex + 1,
+            palette.length - 1,
+          );
+
+        const segmentProgress =
+          exactIndex -
+          startIndex;
+
+        return mixColorValues(
+          palette[startIndex],
+          palette[endIndex],
+          segmentProgress,
+        );
+      }
+
+      function updatePageBackground() {
+        const scrollTop =
+          window.scrollY;
+
+        const maximumScroll =
+          document.documentElement.scrollHeight -
+          window.innerHeight;
+
+        const scrollProgress =
+          maximumScroll <= 0
+            ? 0
+            : clamp(
+                scrollTop /
+                  maximumScroll,
+                0,
+                1,
+              );
+
+        const pageColor =
+          getPaletteColor(
+            pagePalette,
+            scrollProgress,
+          );
+
+        rootElement.style.setProperty(
+          "--page-background",
+          colorToCSS(
+            pageColor,
+          ),
+        );
+      }
+
+      /*
+        Applies the same reverse-scroll movement to every
+        image box in The Practice and About Me.
+      */
+      function updateScrollImages() {
+        const imageBoxes =
+          document.querySelectorAll(
+            ".scroll-image-box",
+          );
+
+        const viewportHeight =
+          window.innerHeight;
+
+        imageBoxes.forEach(
+          (imageBox) => {
+            const image =
+              imageBox.querySelector(
+                ".scroll-bg-img",
+              );
+
+            if (!image) {
+              return;
+            }
+
+            const boxRect =
+              imageBox.getBoundingClientRect();
+
+            if (
+              boxRect.bottom < 0 ||
+              boxRect.top > viewportHeight
+            ) {
+              return;
+            }
+
+            const boxHeight =
+              imageBox.offsetHeight;
+
+            const imageHeight =
+              image.offsetHeight;
+
+            const maximumImageMovement =
+              Math.max(
+                imageHeight -
+                  boxHeight,
+                0,
+              );
+
+            const scrollRange =
+              viewportHeight +
+              boxHeight;
+
+            let progress =
+              (
+                viewportHeight -
+                boxRect.top
+              ) /
+              scrollRange;
+
+            progress =
+              clamp(
+                progress,
+                0,
+                1,
+              );
+
+            const movement =
+              -maximumImageMovement *
+              (
+                1 -
+                progress
+              );
+
+            image.style.transform =
+              `translate3d(-50%, ${movement}px, 0)`;
+          },
+        );
+      }
+
+      function moveNavigationIndicator(
+        activeLink,
+      ) {
+        if (
+          !activeLink ||
+          !navigationMenu ||
+          !navigationIndicator
+        ) {
           return;
         }
 
-        transitionInProgress = true;
+        const menuRect =
+          navigationMenu.getBoundingClientRect();
 
-        const outgoingSlide =
-          slides[currentIndex];
+        const linkRect =
+          activeLink.getBoundingClientRect();
 
-        const nextIndex =
-          (currentIndex + 1) %
-          slides.length;
+        const isMobile =
+          window.innerWidth <= 1000;
 
-        const incomingSlide =
-          slides[nextIndex];
+        let indicatorWidth;
+        let indicatorLeft;
 
-        incomingSlide.style.zIndex = "2";
+        if (isMobile) {
+          indicatorWidth = 42;
 
-        incomingSlide.classList.add(
-          "is-visible"
-        );
+          indicatorLeft =
+            linkRect.left -
+            menuRect.left +
+            (
+              linkRect.width -
+              indicatorWidth
+            ) /
+              2;
+        } else {
+          indicatorWidth =
+            linkRect.width;
 
-        window.setTimeout(() => {
-          outgoingSlide.classList.remove(
-            "is-visible"
-          );
+          indicatorLeft =
+            linkRect.left -
+            menuRect.left;
+        }
 
-          outgoingSlide.style.zIndex = "0";
-          incomingSlide.style.zIndex = "1";
+        const indicatorTop =
+          linkRect.bottom -
+          menuRect.top -
+          1;
 
-          currentIndex = nextIndex;
-          transitionInProgress = false;
-        }, fadeTime);
-      }, displayTime);
-    }
+        navigationIndicator.style.width =
+          `${indicatorWidth}px`;
 
-    function setupMobileMenu() {
-      const menuButton =
-        document.querySelector(".menu-toggle");
+        navigationIndicator.style.left =
+          `${indicatorLeft}px`;
 
-      if (!menuButton || !navigationMenu) {
-        return;
+        navigationIndicator.style.top =
+          `${indicatorTop}px`;
       }
 
-      menuButton.addEventListener("click", () => {
-        const isOpen =
-          navigationMenu.classList.toggle("open");
+      function setActiveNavigation(
+        sectionId,
+      ) {
+        const activeLink =
+          navigationLinks.find(
+            (link) =>
+              link.getAttribute(
+                "href",
+              ) ===
+              `#${sectionId}`,
+          );
 
-        menuButton.classList.toggle(
-          "open",
-          isOpen
+        if (!activeLink) {
+          return;
+        }
+
+        navigationLinks.forEach(
+          (link) => {
+            link.classList.toggle(
+              "active",
+              link === activeLink,
+            );
+          },
         );
 
-        menuButton.setAttribute(
-          "aria-expanded",
-          String(isOpen)
+        currentSectionId =
+          sectionId;
+
+        moveNavigationIndicator(
+          activeLink,
+        );
+      }
+
+      function updateActiveNavigation() {
+        if (
+          pageSections.length === 0
+        ) {
+          return;
+        }
+
+        const headerHeight =
+          pageHeader
+            ? pageHeader.offsetHeight
+            : 0;
+
+        const activationPoint =
+          headerHeight +
+          window.innerHeight *
+            0.32;
+
+        let activeSection =
+          pageSections[0];
+
+        pageSections.forEach(
+          (section) => {
+            const sectionTop =
+              section
+                .getBoundingClientRect()
+                .top;
+
+            if (
+              sectionTop <=
+              activationPoint
+            ) {
+              activeSection =
+                section;
+            }
+          },
         );
 
-        window.setTimeout(() => {
-          const activeLink =
-            document.querySelector(
-              ".nav-link.active"
+        const pageBottom =
+          window.scrollY +
+          window.innerHeight;
+
+        const documentHeight =
+          document.documentElement.scrollHeight;
+
+        if (
+          pageBottom >=
+          documentHeight - 4
+        ) {
+          activeSection =
+            pageSections[
+              pageSections.length - 1
+            ];
+        }
+
+        if (
+          activeSection &&
+          activeSection.id !==
+            currentSectionId
+        ) {
+          setActiveNavigation(
+            activeSection.id,
+          );
+        }
+      }
+
+      function updatePageEffects() {
+        updatePageBackground();
+        updateScrollImages();
+        updateActiveNavigation();
+
+        ticking = false;
+      }
+
+      function requestPageUpdate() {
+        if (ticking) {
+          return;
+        }
+
+        ticking = true;
+
+        window.requestAnimationFrame(
+          updatePageEffects,
+        );
+      }
+
+      function startHomeSlideshow() {
+        const slides =
+          Array.from(
+            document.querySelectorAll(
+              ".home-slide",
+            ),
+          );
+
+        if (
+          slides.length < 2
+        ) {
+          return;
+        }
+
+        const displayTime = 5000;
+        const fadeTime = 2500;
+
+        let currentIndex = 0;
+        let transitionInProgress = false;
+
+        slides.forEach(
+          (
+            slide,
+            index,
+          ) => {
+            slide.style.zIndex =
+              index === 0
+                ? "1"
+                : "0";
+          },
+        );
+
+        window.setInterval(
+          () => {
+            if (
+              transitionInProgress
+            ) {
+              return;
+            }
+
+            transitionInProgress =
+              true;
+
+            const outgoingSlide =
+              slides[currentIndex];
+
+            const nextIndex =
+              (
+                currentIndex + 1
+              ) %
+              slides.length;
+
+            const incomingSlide =
+              slides[nextIndex];
+
+            incomingSlide.style.zIndex =
+              "2";
+
+            incomingSlide.classList.add(
+              "is-visible",
             );
 
-          moveNavigationIndicator(activeLink);
-        }, 360);
-      });
+            window.setTimeout(
+              () => {
+                outgoingSlide.classList.remove(
+                  "is-visible",
+                );
 
-      navigationLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-          navigationMenu.classList.remove(
-            "open"
-          );
+                outgoingSlide.style.zIndex =
+                  "0";
 
-          menuButton.classList.remove(
-            "open"
-          );
+                incomingSlide.style.zIndex =
+                  "1";
 
-          menuButton.setAttribute(
-            "aria-expanded",
-            "false"
-          );
-        });
-      });
-    }
+                currentIndex =
+                  nextIndex;
 
-    window.addEventListener(
-      "scroll",
-      requestPageUpdate,
-      { passive: true }
-    );
+                transitionInProgress =
+                  false;
+              },
+              fadeTime,
+            );
+          },
+          displayTime,
+        );
+      }
 
-    window.addEventListener("resize", () => {
-      requestPageUpdate();
-
-      window.requestAnimationFrame(() => {
-        const activeLink =
+      function setupMobileMenu() {
+        const menuButton =
           document.querySelector(
-            ".nav-link.active"
+            ".menu-toggle",
           );
 
-        moveNavigationIndicator(activeLink);
-      });
-    });
+        if (
+          !menuButton ||
+          !navigationMenu
+        ) {
+          return;
+        }
 
-    window.addEventListener("load", () => {
-      setupMobileMenu();
-      startHomeSlideshow();
-      updatePageEffects();
+        menuButton.addEventListener(
+          "click",
+          () => {
+            const isOpen =
+              navigationMenu.classList.toggle(
+                "open",
+              );
 
-      window.requestAnimationFrame(() => {
-        const activeLink =
-          document.querySelector(
-            ".nav-link.active"
+            menuButton.classList.toggle(
+              "open",
+              isOpen,
+            );
+
+            menuButton.setAttribute(
+              "aria-expanded",
+              String(
+                isOpen,
+              ),
+            );
+
+            window.setTimeout(
+              () => {
+                const activeLink =
+                  document.querySelector(
+                    ".nav-link.active",
+                  );
+
+                moveNavigationIndicator(
+                  activeLink,
+                );
+              },
+              360,
+            );
+          },
+        );
+
+        navigationLinks.forEach(
+          (link) => {
+            link.addEventListener(
+              "click",
+              () => {
+                navigationMenu.classList.remove(
+                  "open",
+                );
+
+                menuButton.classList.remove(
+                  "open",
+                );
+
+                menuButton.setAttribute(
+                  "aria-expanded",
+                  "false",
+                );
+              },
+            );
+          },
+        );
+      }
+
+      window.addEventListener(
+        "scroll",
+        requestPageUpdate,
+        {
+          passive: true,
+        },
+      );
+
+      window.addEventListener(
+        "resize",
+        () => {
+          requestPageUpdate();
+
+          window.requestAnimationFrame(
+            () => {
+              const activeLink =
+                document.querySelector(
+                  ".nav-link.active",
+                );
+
+              moveNavigationIndicator(
+                activeLink,
+              );
+            },
           );
+        },
+      );
 
-        moveNavigationIndicator(activeLink);
-      });
-    });
-  </script>
+      window.addEventListener(
+        "load",
+        () => {
+          setupMobileMenu();
+          startHomeSlideshow();
+          updatePageEffects();
 
-</body>
+          window.requestAnimationFrame(
+            () => {
+              const activeLink =
+                document.querySelector(
+                  ".nav-link.active",
+                );
+
+              moveNavigationIndicator(
+                activeLink,
+              );
+            },
+          );
+        },
+      );
+    </script>
+  </body>
 </html>

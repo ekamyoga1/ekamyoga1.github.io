@@ -1,3 +1,19 @@
+:root {
+  --page-background: #68756d;
+
+  --section-background: #8a928e;
+  --section-text: #ffffff;
+  --section-border: rgba(255, 255, 255, 0.22);
+
+  --schedule-background: #8a928e;
+  --schedule-border: rgba(255, 255, 255, 0.2);
+
+  /*
+    Shared width for the Home panel and the inner section boxes.
+  */
+  --content-box-width: 920px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,13 +22,13 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 70px;
+  scroll-padding-top: 62px;
 }
 
 body {
   min-height: 100vh;
-  background-color: #68756D;
-  color: #68756D;
+  color: #68756d;
+  background-color: var(--page-background);
   font-family: Helvetica, Arial, sans-serif;
   font-weight: 400;
   line-height: 1.7;
@@ -26,11 +42,12 @@ h3 {
 }
 
 /* Header and navigation */
+
 header {
   position: sticky;
   top: 0;
   z-index: 10;
-  padding: 10px 60px;
+  padding: 6px 60px;
   background-color: rgba(104, 117, 109, 0.94);
   border-bottom: 1px solid rgba(244, 243, 241, 0.18);
 }
@@ -41,8 +58,33 @@ nav {
   align-items: center;
 }
 
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.brand-glyph {
+  width: 48px;
+  height: 48px;
+  display: block;
+  flex-shrink: 0;
+  object-fit: contain;
+
+  /*
+    Makes the existing glyph appear completely white.
+  */
+  filter:
+    grayscale(1)
+    brightness(0)
+    invert(1);
+
+  opacity: 1;
+}
+
 nav h1 {
-  color: #F4F3F1;
+  color: #ffffff;
   font-size: 27px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -52,31 +94,36 @@ nav h1 {
   position: relative;
   display: flex;
   align-items: center;
+  flex-wrap: nowrap;
   gap: 25px;
   list-style: none;
+  white-space: nowrap;
 }
 
 .nav-menu li {
   position: relative;
   z-index: 2;
+  flex: 0 0 auto;
 }
 
 .nav-link {
   position: relative;
   display: inline-block;
-  padding: 4px 0;
-  color: #F4F3F1;
+  padding: 2px 0;
+  color: #ffffff;
   text-decoration: none;
   font-weight: 400;
-  transition: color 0.25s ease;
+  white-space: nowrap;
+  transition: opacity 0.25s ease;
 }
 
 .nav-link:hover {
-  color: #DECEBF;
+  color: #ffffff;
+  opacity: 0.82;
 }
 
 .nav-link.active {
-  color: #DECEBF;
+  color: #ffffff;
 }
 
 .nav-indicator {
@@ -87,7 +134,7 @@ nav h1 {
   width: 0;
   height: 1px;
   pointer-events: none;
-  background-color: #DECEBF;
+  background-color: #decebf;
 
   transition:
     left 0.32s ease,
@@ -96,10 +143,11 @@ nav h1 {
 }
 
 /* Mobile menu button */
+
 .menu-toggle {
   display: none;
   width: 36px;
-  height: 30px;
+  height: 28px;
   padding: 0;
   border: 0;
   background: transparent;
@@ -110,8 +158,8 @@ nav h1 {
   display: block;
   width: 100%;
   height: 1px;
-  margin: 7px 0;
-  background-color: #F4F3F1;
+  margin: 6px 0;
+  background-color: #ffffff;
 
   transition:
     transform 0.3s ease,
@@ -119,7 +167,9 @@ nav h1 {
 }
 
 .menu-toggle.open span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
+  transform:
+    translateY(7px)
+    rotate(45deg);
 }
 
 .menu-toggle.open span:nth-child(2) {
@@ -127,10 +177,13 @@ nav h1 {
 }
 
 .menu-toggle.open span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
+  transform:
+    translateY(-7px)
+    rotate(-45deg);
 }
 
 /* Home section */
+
 .intro-section {
   position: relative;
   min-height: 80vh;
@@ -140,16 +193,17 @@ nav h1 {
   align-items: center;
   overflow: hidden;
   text-align: center;
-  background-color: #68756D;
+  background-color: #68756d;
 }
 
 /* Home slideshow */
+
 .home-slideshow {
   position: absolute;
   inset: 0;
   z-index: 0;
   overflow: hidden;
-  background-color: #68756D;
+  background-color: #68756d;
 }
 
 .home-slide {
@@ -161,14 +215,17 @@ nav h1 {
   object-fit: cover;
   object-position: center;
   opacity: 0;
-  transition: opacity 2.5s ease-in-out;
+
+  transition:
+    opacity 2.5s ease-in-out;
 }
 
 .home-slide.is-visible {
   opacity: 1;
 }
 
-/* Tint over slideshow */
+/* Tint over home slideshow */
+
 .home-shade {
   position: absolute;
   inset: 0;
@@ -183,24 +240,24 @@ nav h1 {
     rgba(104, 117, 109, 0.22);
 }
 
-/* Home content panel */
+/*
+  Home translucent panel.
+
+  Its width now matches The Practice, Schedule and About Me
+  inner boxes.
+*/
+
 .intro-content {
   position: relative;
   z-index: 4;
-  width: min(850px, 100%);
+  width: min(var(--content-box-width), 100%);
   padding: 38px 46px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 18px;
-
-  /*
-    A fixed maximum radius keeps the panel very rounded
-    without allowing it to become circular on narrow screens.
-  */
   border-radius: 40px;
-
   background-color: rgba(104, 117, 109, 0.34);
   border: 1px solid rgba(244, 243, 241, 0.18);
   backdrop-filter: blur(1px);
@@ -209,7 +266,7 @@ nav h1 {
 
 .intro-section h2 {
   max-width: 850px;
-  color: #F4F3F1;
+  color: #ffffff;
   font-size: 50px;
   line-height: 1.2;
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.28);
@@ -217,32 +274,29 @@ nav h1 {
 
 .intro-section p {
   max-width: 700px;
-  color: #F4F3F1;
+  color: #ffffff;
   font-size: 20px;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
 }
 
-/* General sections */
+/* Static outer section boxes */
+
 .section {
   width: 80%;
   margin: 48px auto;
   padding: 84px 60px;
+  color: #ffffff;
   text-align: center;
-  background-color: rgba(244, 243, 241, 0.76);
-  border: 1px solid rgba(104, 117, 109, 0.18);
-
-  /*
-    Larger rounded corners, capped at a fixed size.
-    This prevents narrow sections from becoming circles.
-  */
+  background-color: #8a928e;
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 42px;
-
-  scroll-margin-top: 70px;
+  box-shadow: 0 18px 45px rgba(45, 58, 50, 0.13);
+  scroll-margin-top: 62px;
 }
 
 .section h2 {
   margin-bottom: 28px;
-  color: #68756D;
+  color: #ffffff;
   font-size: 38px;
   line-height: 1.25;
 }
@@ -250,22 +304,112 @@ nav h1 {
 .section p {
   max-width: 900px;
   margin: 12px auto;
-  color: #68756D;
+  color: #ffffff;
   font-size: 18px;
 }
 
-/* Practice section */
-.practice-section p {
-  max-width: 850px;
+/*
+  Consistent inner-box width for:
+  - The Practice
+  - Schedule
+  - About Me
+*/
+
+.scroll-image-box,
+.schedule-list {
+  width: min(var(--content-box-width), 100%);
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Reverse-scrolling image boxes */
+
+.scroll-image-box {
+  position: relative;
+  overflow: hidden;
+  background-color: #68756d;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 34px;
+  box-shadow: 0 18px 38px rgba(45, 58, 50, 0.18);
+}
+
+.scroll-bg-img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 0;
+  width: 100%;
+  height: 140%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  will-change: transform;
+}
+
+/* Default tint used by About Me */
+
+.scroll-image-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      rgba(104, 117, 109, 0.56),
+      rgba(161, 167, 158, 0.54)
+    ),
+    rgba(104, 117, 109, 0.14);
+}
+
+/*
+  The Practice image keeps the same tint opacity as before,
+  but now uses lighter sage shades.
+*/
+
+.practice-section .scroll-bg-img {
+  filter:
+    brightness(0.67)
+    saturate(0.7)
+    contrast(1.05);
+}
+
+.practice-section .scroll-image-shade {
+  background:
+    linear-gradient(
+      rgba(116, 130, 121, 0.84),
+      rgba(143, 154, 146, 0.82)
+    ),
+    rgba(87, 102, 93, 0.4);
+}
+
+.scroll-image-content {
+  position: relative;
+  z-index: 2;
+  padding: 72px 54px;
+}
+
+.scroll-image-content p {
+  margin: 0 auto;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.28);
+}
+
+.practice-content p,
+.about-content p {
+  max-width: 780px;
 }
 
 /* Main button */
+
 .btn {
   display: inline-block;
   margin-top: 8px;
   padding: 12px 28px;
-  color: #68756D;
-  background-color: #F4F3F1;
+  color: #68756d;
+  background-color: #f4f3f1;
   border-radius: 30px;
   text-decoration: none;
   font-weight: 400;
@@ -277,24 +421,28 @@ nav h1 {
 }
 
 .btn:hover {
-  color: #68756D;
-  background-color: #DECEBF;
+  color: #68756d;
+  background-color: #decebf;
   transform: translateY(-2px);
 }
 
 /* Schedule */
+
 .schedule-list {
-  max-width: 850px;
-  margin: 0 auto;
-  padding: 30px;
-  background-color: rgba(244, 243, 241, 0.68);
-  border: 1px solid rgba(104, 117, 109, 0.18);
+  padding: 38px 54px;
+  color: #ffffff;
+  background-color: #8a928e;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 34px;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.13),
+    0 10px 24px rgba(45, 58, 50, 0.08);
 }
 
 .schedule-list p {
   margin: 12px auto;
-  color: #68756D;
+  color: #ffffff;
 }
 
 .schedule-list .schedule-time {
@@ -314,62 +462,8 @@ nav h1 {
   font-style: italic;
 }
 
-/* About section */
-.about-section {
-  position: relative;
-  overflow: hidden;
-  padding: 0;
-  background-color: rgba(104, 117, 109, 0.30);
-  border: 1px solid rgba(104, 117, 109, 0.18);
-  border-radius: 42px;
-}
-
-.about-bg-img {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  z-index: 0;
-  width: 100%;
-  min-height: 100%;
-  height: auto;
-  object-fit: cover;
-  will-change: transform;
-}
-
-.about-shade {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-
-  background:
-    linear-gradient(
-      rgba(104, 117, 109, 0.52),
-      rgba(161, 167, 158, 0.52)
-    ),
-    rgba(244, 243, 241, 0.12);
-}
-
-.about-content {
-  position: relative;
-  z-index: 2;
-  padding: 84px 60px;
-}
-
-.about-content h2 {
-  margin-bottom: 28px;
-  color: #F4F3F1;
-  font-size: 38px;
-}
-
-.about-content p {
-  max-width: 850px;
-  margin: 12px auto;
-  color: #F4F3F1;
-  font-size: 16px;
-  text-align: center;
-}
-
 /* Contact section */
+
 #contact {
   margin-bottom: 70px;
 }
@@ -381,6 +475,7 @@ nav h1 {
 }
 
 /* Social links */
+
 .social-links {
   display: flex;
   justify-content: center;
@@ -388,10 +483,6 @@ nav h1 {
   gap: 16px;
 }
 
-/*
-  These remain circular intentionally because they are icon buttons,
-  not rectangular content boxes.
-*/
 .social-link {
   width: 48px;
   height: 48px;
@@ -399,8 +490,8 @@ nav h1 {
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
-  background-color: #68756D;
-  border: 1px solid rgba(104, 117, 109, 0.22);
+  background-color: #68756d;
+  border: 1px solid rgba(255, 255, 255, 0.24);
   border-radius: 50%;
 
   transition:
@@ -409,13 +500,13 @@ nav h1 {
 }
 
 .social-link:hover {
-  background-color: #A1A79E;
-  border-color: rgba(104, 117, 109, 0.32);
+  background-color: #a1a79e;
+  border-color: rgba(255, 255, 255, 0.42);
 }
 
 .social-link:focus-visible,
 .location-link:focus-visible {
-  outline: 2px solid #68756D;
+  outline: 2px solid #ffffff;
   outline-offset: 4px;
 }
 
@@ -427,6 +518,7 @@ nav h1 {
 }
 
 /* Basel location link */
+
 .location-link {
   margin-top: 26px;
   padding: 10px 16px;
@@ -434,80 +526,72 @@ nav h1 {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  color: #68756D;
+  color: #ffffff;
   text-decoration: none;
   border-radius: 22px;
 
   transition:
-    color 0.25s ease,
     background-color 0.25s ease;
 }
 
 .location-link:hover {
-  color: #68756D;
-  background-color: rgba(161, 167, 158, 0.18);
+  background-color: rgba(255, 255, 255, 0.14);
 }
 
 .location-icon {
-  display: block;
   width: 24px;
   height: 24px;
+  display: block;
+  flex-shrink: 0;
   object-fit: contain;
 }
 
-.location-link span {
+.location-link span:last-child {
+  color: #ffffff;
   font-size: 17px;
   line-height: 1.3;
 }
 
 /* Footer */
+
 footer {
   padding: 25px;
-  color: #F4F3F1;
+  color: #ffffff;
   background-color: rgba(104, 117, 109, 0.88);
   text-align: center;
 }
 
 footer p {
-  color: #F4F3F1;
+  color: #ffffff;
 }
 
-/* Tablet layout */
+/*
+  Tablet and hamburger navigation.
+
+  The full horizontal menu collapses at 1000px so the
+  two-word menu labels never wrap onto separate lines.
+*/
+
 @media (max-width: 1000px) {
-  .section {
-    width: 86%;
-    border-radius: 36px;
-  }
-
-  .intro-content {
-    border-radius: 36px;
-  }
-
-  .about-section {
-    border-radius: 36px;
-  }
-
-  .schedule-list {
-    border-radius: 30px;
-  }
-}
-
-/* Mobile layout */
-@media (max-width: 768px) {
   html {
-    scroll-padding-top: 76px;
+    scroll-padding-top: 64px;
   }
 
   header {
-    padding: 12px 20px;
+    padding: 7px 20px;
   }
 
   nav {
     position: relative;
   }
 
-  nav h1 {
-    font-size: 24px;
+  .brand {
+    gap: 3px;
+  }
+
+  .brand-glyph {
+    width: 44px;
+    height: 44px;
   }
 
   .menu-toggle {
@@ -516,7 +600,7 @@ footer p {
 
   .nav-menu {
     position: absolute;
-    top: calc(100% + 12px);
+    top: calc(100% + 7px);
     left: -20px;
     right: -20px;
     max-height: 0;
@@ -547,7 +631,92 @@ footer p {
   .nav-link {
     display: block;
     width: 100%;
-    padding: 11px 0;
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  .section {
+    width: 86%;
+    border-radius: 36px;
+  }
+
+  .intro-content {
+    border-radius: 36px;
+  }
+
+  .scroll-image-box,
+  .schedule-list {
+    width: 100%;
+    border-radius: 30px;
+  }
+}
+
+/* Mobile layout */
+
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 64px;
+  }
+
+  header {
+    padding: 7px 20px;
+  }
+
+  nav {
+    position: relative;
+  }
+
+  nav h1 {
+    font-size: 24px;
+  }
+
+  .brand {
+    gap: 3px;
+  }
+
+  .brand-glyph {
+    width: 42px;
+    height: 42px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: calc(100% + 7px);
+    left: -20px;
+    right: -20px;
+    max-height: 0;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    overflow: hidden;
+    background-color: rgba(104, 117, 109, 0.98);
+    border-bottom: 1px solid rgba(244, 243, 241, 0.18);
+
+    transition:
+      max-height 0.35s ease,
+      padding 0.35s ease;
+  }
+
+  .nav-menu.open {
+    max-height: 360px;
+    padding-top: 12px;
+    padding-bottom: 16px;
+  }
+
+  .nav-menu li {
+    width: 100%;
+  }
+
+  .nav-link {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
     text-align: center;
   }
 
@@ -557,12 +726,8 @@ footer p {
   }
 
   .intro-content {
+    width: 100%;
     padding: 30px 22px;
-
-    /*
-      Still rounded, but deliberately reduced on small screens
-      so the panel remains rectangular rather than circular.
-    */
     border-radius: 28px;
   }
 
@@ -584,7 +749,7 @@ footer p {
     margin: 36px auto;
     padding: 56px 22px;
     border-radius: 30px;
-    scroll-margin-top: 76px;
+    scroll-margin-top: 64px;
   }
 
   .section h2 {
@@ -592,13 +757,26 @@ footer p {
     font-size: 31px;
   }
 
-  .practice-section p {
+  .scroll-image-box,
+  .schedule-list {
+    width: 100%;
+    border-radius: 26px;
+  }
+
+  .scroll-bg-img {
+    height: 145%;
+  }
+
+  .scroll-image-content {
+    padding: 58px 24px;
+  }
+
+  .scroll-image-content p {
     font-size: 17px;
   }
 
   .schedule-list {
-    padding: 26px 20px;
-    border-radius: 26px;
+    padding: 30px 24px;
   }
 
   .schedule-list .schedule-time {
@@ -611,28 +789,6 @@ footer p {
 
   .schedule-list .schedule-invitation {
     font-size: 18px;
-  }
-
-  .about-section {
-    padding: 0;
-    border-radius: 30px;
-  }
-
-  .about-bg-img {
-    width: 100%;
-    min-height: 100%;
-  }
-
-  .about-content {
-    padding: 58px 24px;
-  }
-
-  .about-content h2 {
-    font-size: 31px;
-  }
-
-  .about-content p {
-    font-size: 16px;
   }
 
   .social-links {
@@ -657,19 +813,30 @@ footer p {
     border-radius: 20px;
   }
 
-  .location-link span {
+  .location-link span:last-child {
     font-size: 16px;
   }
 }
 
 /* Very narrow screens */
+
 @media (max-width: 420px) {
+  .brand {
+    gap: 2px;
+  }
+
+  .brand-glyph {
+    width: 40px;
+    height: 40px;
+  }
+
   .intro-section {
     padding-left: 14px;
     padding-right: 14px;
   }
 
   .intro-content {
+    width: 100%;
     padding: 26px 18px;
     border-radius: 24px;
   }
@@ -680,13 +847,18 @@ footer p {
     border-radius: 24px;
   }
 
+  .scroll-image-box,
   .schedule-list {
-    padding: 24px 16px;
+    width: 100%;
     border-radius: 22px;
   }
 
-  .about-section {
-    border-radius: 24px;
+  .scroll-image-content {
+    padding: 48px 18px;
+  }
+
+  .schedule-list {
+    padding: 26px 18px;
   }
 
   .location-link {
@@ -695,6 +867,7 @@ footer p {
 }
 
 /* Reduced-motion accessibility */
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
