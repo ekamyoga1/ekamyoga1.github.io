@@ -41,46 +41,31 @@
 
         <ul id="nav-menu" class="nav-menu">
           <li>
-            <a
-              href="#home"
-              class="nav-link active"
-            >
+            <a href="#home" class="nav-link active">
               Home
             </a>
           </li>
 
           <li>
-            <a
-              href="#practice"
-              class="nav-link"
-            >
+            <a href="#practice" class="nav-link">
               The Practice
             </a>
           </li>
 
           <li>
-            <a
-              href="#schedule"
-              class="nav-link"
-            >
+            <a href="#schedule" class="nav-link">
               Schedule
             </a>
           </li>
 
           <li>
-            <a
-              href="#about"
-              class="nav-link"
-            >
+            <a href="#about" class="nav-link">
               About Me
             </a>
           </li>
 
           <li>
-            <a
-              href="#contact"
-              class="nav-link"
-            >
+            <a href="#contact" class="nav-link">
               Contact
             </a>
           </li>
@@ -94,40 +79,37 @@
     </header>
 
     <main>
-      <section
-        id="home"
-        class="intro-section"
-      >
+      <section id="home" class="intro-section">
         <div
           class="home-slideshow"
           aria-hidden="true"
         >
           <img
-            src="pic/pic_1.jpg"
+            src="pic/pic_1.webp"
             alt=""
             class="home-slide is-visible"
           />
 
           <img
-            src="pic/pic_2.jpeg"
+            src="pic/pic_2.webp"
             alt=""
             class="home-slide"
           />
 
           <img
-            src="pic/pic_3.jpg"
+            src="pic/pic_3.webp"
             alt=""
             class="home-slide"
           />
 
           <img
-            src="pic/pic_4.jpg"
+            src="pic/pic_4.webp"
             alt=""
             class="home-slide"
           />
 
           <img
-            src="pic/pic_5.jpg"
+            src="pic/pic_5.webp"
             alt=""
             class="home-slide"
           />
@@ -186,10 +168,7 @@
         </div>
       </section>
 
-      <section
-        id="schedule"
-        class="section"
-      >
+      <section id="schedule" class="section">
         <h2>Schedule</h2>
 
         <div class="schedule-list">
@@ -215,7 +194,7 @@
 
         <div class="scroll-image-box">
           <img
-            src="pic/About.jpeg"
+            src="pic/About.webp"
             alt="Silvia practicing yoga"
             class="scroll-bg-img"
           />
@@ -328,31 +307,21 @@
       ];
 
       const pageSections = Array.from(
-        document.querySelectorAll(
-          "main section[id]",
-        ),
+        document.querySelectorAll("main section[id]"),
       );
 
       const navigationLinks = Array.from(
-        document.querySelectorAll(
-          ".nav-link",
-        ),
+        document.querySelectorAll(".nav-link"),
       );
 
       const navigationMenu =
-        document.querySelector(
-          ".nav-menu",
-        );
+        document.querySelector(".nav-menu");
 
       const navigationIndicator =
-        document.querySelector(
-          ".nav-indicator",
-        );
+        document.querySelector(".nav-indicator");
 
       const pageHeader =
-        document.querySelector(
-          "header",
-        );
+        document.querySelector("header");
 
       const rootElement =
         document.documentElement;
@@ -360,16 +329,9 @@
       let ticking = false;
       let currentSectionId = "home";
 
-      function clamp(
-        value,
-        minimum,
-        maximum,
-      ) {
+      function clamp(value, minimum, maximum) {
         return Math.min(
-          Math.max(
-            value,
-            minimum,
-          ),
+          Math.max(value, minimum),
           maximum,
         );
       }
@@ -382,51 +344,37 @@
         return [
           Math.round(
             color1[0] +
-              (
-                color2[0] -
-                color1[0]
-              ) *
+              (color2[0] - color1[0]) *
                 amount,
           ),
 
           Math.round(
             color1[1] +
-              (
-                color2[1] -
-                color1[1]
-              ) *
+              (color2[1] - color1[1]) *
                 amount,
           ),
 
           Math.round(
             color1[2] +
-              (
-                color2[2] -
-                color1[2]
-              ) *
+              (color2[2] - color1[2]) *
                 amount,
           ),
         ];
       }
 
-      function colorToCSS(
-        color,
-      ) {
-        return (
-          `rgb(${color[0]}, ${color[1]}, ${color[2]})`
-        );
+      function colorToCSS(color) {
+        return `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
       }
 
       function getPaletteColor(
         palette,
         progress,
       ) {
-        const safeProgress =
-          clamp(
-            progress,
-            0,
-            1,
-          );
+        const safeProgress = clamp(
+          progress,
+          0,
+          1,
+        );
 
         const numberOfSegments =
           palette.length - 1;
@@ -435,23 +383,18 @@
           safeProgress *
           numberOfSegments;
 
-        const startIndex =
-          Math.min(
-            Math.floor(
-              exactIndex,
-            ),
-            palette.length - 1,
-          );
+        const startIndex = Math.min(
+          Math.floor(exactIndex),
+          palette.length - 1,
+        );
 
-        const endIndex =
-          Math.min(
-            startIndex + 1,
-            palette.length - 1,
-          );
+        const endIndex = Math.min(
+          startIndex + 1,
+          palette.length - 1,
+        );
 
         const segmentProgress =
-          exactIndex -
-          startIndex;
+          exactIndex - startIndex;
 
         return mixColorValues(
           palette[startIndex],
@@ -461,8 +404,7 @@
       }
 
       function updatePageBackground() {
-        const scrollTop =
-          window.scrollY;
+        const scrollTop = window.scrollY;
 
         const maximumScroll =
           document.documentElement.scrollHeight -
@@ -472,23 +414,19 @@
           maximumScroll <= 0
             ? 0
             : clamp(
-                scrollTop /
-                  maximumScroll,
+                scrollTop / maximumScroll,
                 0,
                 1,
               );
 
-        const pageColor =
-          getPaletteColor(
-            pagePalette,
-            scrollProgress,
-          );
+        const pageColor = getPaletteColor(
+          pagePalette,
+          scrollProgress,
+        );
 
         rootElement.style.setProperty(
           "--page-background",
-          colorToCSS(
-            pageColor,
-          ),
+          colorToCSS(pageColor),
         );
       }
 
@@ -505,69 +443,58 @@
         const viewportHeight =
           window.innerHeight;
 
-        imageBoxes.forEach(
-          (imageBox) => {
-            const image =
-              imageBox.querySelector(
-                ".scroll-bg-img",
-              );
+        imageBoxes.forEach((imageBox) => {
+          const image =
+            imageBox.querySelector(
+              ".scroll-bg-img",
+            );
 
-            if (!image) {
-              return;
-            }
+          if (!image) {
+            return;
+          }
 
-            const boxRect =
-              imageBox.getBoundingClientRect();
+          const boxRect =
+            imageBox.getBoundingClientRect();
 
-            if (
-              boxRect.bottom < 0 ||
-              boxRect.top > viewportHeight
-            ) {
-              return;
-            }
+          if (
+            boxRect.bottom < 0 ||
+            boxRect.top > viewportHeight
+          ) {
+            return;
+          }
 
-            const boxHeight =
-              imageBox.offsetHeight;
+          const boxHeight =
+            imageBox.offsetHeight;
 
-            const imageHeight =
-              image.offsetHeight;
+          const imageHeight =
+            image.offsetHeight;
 
-            const maximumImageMovement =
-              Math.max(
-                imageHeight -
-                  boxHeight,
-                0,
-              );
+          const maximumImageMovement =
+            Math.max(
+              imageHeight - boxHeight,
+              0,
+            );
 
-            const scrollRange =
-              viewportHeight +
-              boxHeight;
+          const scrollRange =
+            viewportHeight + boxHeight;
 
-            let progress =
-              (
-                viewportHeight -
-                boxRect.top
-              ) /
-              scrollRange;
+          let progress =
+            (viewportHeight - boxRect.top) /
+            scrollRange;
 
-            progress =
-              clamp(
-                progress,
-                0,
-                1,
-              );
+          progress = clamp(
+            progress,
+            0,
+            1,
+          );
 
-            const movement =
-              -maximumImageMovement *
-              (
-                1 -
-                progress
-              );
+          const movement =
+            -maximumImageMovement *
+            (1 - progress);
 
-            image.style.transform =
-              `translate3d(-50%, ${movement}px, 0)`;
-          },
-        );
+          image.style.transform =
+            `translate3d(-50%, ${movement}px, 0)`;
+        });
       }
 
       function moveNavigationIndicator(
@@ -599,10 +526,8 @@
           indicatorLeft =
             linkRect.left -
             menuRect.left +
-            (
-              linkRect.width -
-              indicatorWidth
-            ) /
+            (linkRect.width -
+              indicatorWidth) /
               2;
         } else {
           indicatorWidth =
@@ -634,9 +559,7 @@
         const activeLink =
           navigationLinks.find(
             (link) =>
-              link.getAttribute(
-                "href",
-              ) ===
+              link.getAttribute("href") ===
               `#${sectionId}`,
           );
 
@@ -644,17 +567,14 @@
           return;
         }
 
-        navigationLinks.forEach(
-          (link) => {
-            link.classList.toggle(
-              "active",
-              link === activeLink,
-            );
-          },
-        );
+        navigationLinks.forEach((link) => {
+          link.classList.toggle(
+            "active",
+            link === activeLink,
+          );
+        });
 
-        currentSectionId =
-          sectionId;
+        currentSectionId = sectionId;
 
         moveNavigationIndicator(
           activeLink,
@@ -662,9 +582,7 @@
       }
 
       function updateActiveNavigation() {
-        if (
-          pageSections.length === 0
-        ) {
+        if (pageSections.length === 0) {
           return;
         }
 
@@ -675,35 +593,32 @@
 
         const activationPoint =
           headerHeight +
-          window.innerHeight *
-            0.32;
+          window.innerHeight * 0.32;
 
         let activeSection =
           pageSections[0];
 
-        pageSections.forEach(
-          (section) => {
-            const sectionTop =
-              section
-                .getBoundingClientRect()
-                .top;
+        pageSections.forEach((section) => {
+          const sectionTop =
+            section
+              .getBoundingClientRect()
+              .top;
 
-            if (
-              sectionTop <=
-              activationPoint
-            ) {
-              activeSection =
-                section;
-            }
-          },
-        );
+          if (
+            sectionTop <=
+            activationPoint
+          ) {
+            activeSection = section;
+          }
+        });
 
         const pageBottom =
           window.scrollY +
           window.innerHeight;
 
         const documentHeight =
-          document.documentElement.scrollHeight;
+          document.documentElement
+            .scrollHeight;
 
         if (
           pageBottom >=
@@ -747,16 +662,13 @@
       }
 
       function startHomeSlideshow() {
-        const slides =
-          Array.from(
-            document.querySelectorAll(
-              ".home-slide",
-            ),
-          );
+        const slides = Array.from(
+          document.querySelectorAll(
+            ".home-slide",
+          ),
+        );
 
-        if (
-          slides.length < 2
-        ) {
+        if (slides.length < 2) {
           return;
         }
 
@@ -767,70 +679,51 @@
         let transitionInProgress = false;
 
         slides.forEach(
-          (
-            slide,
-            index,
-          ) => {
+          (slide, index) => {
             slide.style.zIndex =
-              index === 0
-                ? "1"
-                : "0";
+              index === 0 ? "1" : "0";
           },
         );
 
-        window.setInterval(
-          () => {
-            if (
-              transitionInProgress
-            ) {
-              return;
-            }
+        window.setInterval(() => {
+          if (transitionInProgress) {
+            return;
+          }
 
-            transitionInProgress =
-              true;
+          transitionInProgress = true;
 
-            const outgoingSlide =
-              slides[currentIndex];
+          const outgoingSlide =
+            slides[currentIndex];
 
-            const nextIndex =
-              (
-                currentIndex + 1
-              ) %
-              slides.length;
+          const nextIndex =
+            (currentIndex + 1) %
+            slides.length;
 
-            const incomingSlide =
-              slides[nextIndex];
+          const incomingSlide =
+            slides[nextIndex];
 
-            incomingSlide.style.zIndex =
-              "2";
+          incomingSlide.style.zIndex =
+            "2";
 
-            incomingSlide.classList.add(
+          incomingSlide.classList.add(
+            "is-visible",
+          );
+
+          window.setTimeout(() => {
+            outgoingSlide.classList.remove(
               "is-visible",
             );
 
-            window.setTimeout(
-              () => {
-                outgoingSlide.classList.remove(
-                  "is-visible",
-                );
+            outgoingSlide.style.zIndex =
+              "0";
 
-                outgoingSlide.style.zIndex =
-                  "0";
+            incomingSlide.style.zIndex =
+              "1";
 
-                incomingSlide.style.zIndex =
-                  "1";
-
-                currentIndex =
-                  nextIndex;
-
-                transitionInProgress =
-                  false;
-              },
-              fadeTime,
-            );
-          },
-          displayTime,
-        );
+            currentIndex = nextIndex;
+            transitionInProgress = false;
+          }, fadeTime);
+        }, displayTime);
       }
 
       function setupMobileMenu() {
@@ -861,48 +754,41 @@
 
             menuButton.setAttribute(
               "aria-expanded",
-              String(
-                isOpen,
-              ),
+              String(isOpen),
             );
 
-            window.setTimeout(
-              () => {
-                const activeLink =
-                  document.querySelector(
-                    ".nav-link.active",
-                  );
-
-                moveNavigationIndicator(
-                  activeLink,
+            window.setTimeout(() => {
+              const activeLink =
+                document.querySelector(
+                  ".nav-link.active",
                 );
-              },
-              360,
-            );
+
+              moveNavigationIndicator(
+                activeLink,
+              );
+            }, 360);
           },
         );
 
-        navigationLinks.forEach(
-          (link) => {
-            link.addEventListener(
-              "click",
-              () => {
-                navigationMenu.classList.remove(
-                  "open",
-                );
+        navigationLinks.forEach((link) => {
+          link.addEventListener(
+            "click",
+            () => {
+              navigationMenu.classList.remove(
+                "open",
+              );
 
-                menuButton.classList.remove(
-                  "open",
-                );
+              menuButton.classList.remove(
+                "open",
+              );
 
-                menuButton.setAttribute(
-                  "aria-expanded",
-                  "false",
-                );
-              },
-            );
-          },
-        );
+              menuButton.setAttribute(
+                "aria-expanded",
+                "false",
+              );
+            },
+          );
+        });
       }
 
       window.addEventListener(

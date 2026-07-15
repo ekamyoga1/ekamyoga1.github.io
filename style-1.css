@@ -72,9 +72,6 @@ nav {
   flex-shrink: 0;
   object-fit: contain;
 
-  /*
-    Makes the existing glyph appear completely white.
-  */
   filter:
     grayscale(1)
     brightness(0)
@@ -240,12 +237,7 @@ nav h1 {
     rgba(104, 117, 109, 0.22);
 }
 
-/*
-  Home translucent panel.
-
-  Its width now matches The Practice, Schedule and About Me
-  inner boxes.
-*/
+/* Home translucent panel */
 
 .intro-content {
   position: relative;
@@ -308,12 +300,7 @@ nav h1 {
   font-size: 18px;
 }
 
-/*
-  Consistent inner-box width for:
-  - The Practice
-  - Schedule
-  - About Me
-*/
+/* Consistent inner-box widths */
 
 .scroll-image-box,
 .schedule-list {
@@ -362,10 +349,7 @@ nav h1 {
     rgba(104, 117, 109, 0.14);
 }
 
-/*
-  The Practice image keeps the same tint opacity as before,
-  but now uses lighter sage shades.
-*/
+/* Stronger, lighter sage tint for The Practice */
 
 .practice-section .scroll-bg-img {
   filter:
@@ -474,8 +458,6 @@ nav h1 {
   align-items: center;
 }
 
-/* Social links */
-
 .social-links {
   display: flex;
   justify-content: center;
@@ -565,12 +547,7 @@ footer p {
   color: #ffffff;
 }
 
-/*
-  Tablet and hamburger navigation.
-
-  The full horizontal menu collapses at 1000px so the
-  two-word menu labels never wrap onto separate lines.
-*/
+/* Tablet and hamburger navigation */
 
 @media (max-width: 1000px) {
   html {
@@ -677,47 +654,6 @@ footer p {
   .brand-glyph {
     width: 42px;
     height: 42px;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .nav-menu {
-    position: absolute;
-    top: calc(100% + 7px);
-    left: -20px;
-    right: -20px;
-    max-height: 0;
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    overflow: hidden;
-    background-color: rgba(104, 117, 109, 0.98);
-    border-bottom: 1px solid rgba(244, 243, 241, 0.18);
-
-    transition:
-      max-height 0.35s ease,
-      padding 0.35s ease;
-  }
-
-  .nav-menu.open {
-    max-height: 360px;
-    padding-top: 12px;
-    padding-bottom: 16px;
-  }
-
-  .nav-menu li {
-    width: 100%;
-  }
-
-  .nav-link {
-    display: block;
-    width: 100%;
-    padding: 10px 0;
-    text-align: center;
   }
 
   .intro-section {
