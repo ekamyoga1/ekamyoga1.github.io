@@ -1,845 +1,310 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="EKAM YOGA — Ashtanga yoga in Basel." />
+  <title>EKAM YOGA</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <a class="brand" href="#home" aria-label="EKAM YOGA home">
+      <img src="pic/ekam.svg.webp" alt="" aria-hidden="true" />
+      <span>EKAM YOGA</span>
+    </a>
 
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-nav">
+      <span></span>
+      <span></span>
+    </button>
 
-    <title>EKAM YOGA</title>
+    <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+      <a class="is-active" href="#home">Home</a>
+      <a href="#practice">The Practice</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#about">About Me</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <link rel="stylesheet" href="style-1.css" />
-  </head>
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-slides" aria-hidden="true">
+        <img class="hero-slide is-current" src="pic/pic_1.webp" alt="" />
+        <img class="hero-slide" src="pic/pic_2.webp" alt="" />
+        <img class="hero-slide" src="pic/pic_3.webp" alt="" />
+        <img class="hero-slide" src="pic/pic_4.webp" alt="" />
+        <img class="hero-slide" src="pic/pic_5.webp" alt="" />
+      </div>
+      <div class="hero-overlay"></div>
 
-  <body>
-    <header>
-      <nav>
-        <div class="brand">
-          <h1>EKAM YOGA</h1>
+      <div class="hero-content" data-reveal>
+        <h1>Find Balance, Peace, Strength</h1>
+        <p>Move through a structured, breath-led practice cultivating resilience, stability and focus.</p>
+        <a class="outline-button" href="mailto:info-ekamyoga@gmail.com">Get in Touch</a>
+      </div>
 
-          <img
-            src="pic/ekam.svg.webp"
-            alt=""
-            class="brand-glyph"
-            aria-hidden="true"
-          />
-        </div>
+    </section>
 
-        <button
-          class="menu-toggle"
-          type="button"
-          aria-label="Open navigation menu"
-          aria-expanded="false"
-          aria-controls="nav-menu"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+    <section id="practice" class="practice-section section-shell">
+      <div class="practice-image" data-reveal>
+        <img src="pic/ashtanga.webp" alt="Ashtanga yoga practice" />
+      </div>
 
-        <ul id="nav-menu" class="nav-menu">
-          <li>
-            <a href="#home" class="nav-link active">
-              Home
-            </a>
-          </li>
-
-          <li>
-            <a href="#practice" class="nav-link">
-              The Practice
-            </a>
-          </li>
-
-          <li>
-            <a href="#schedule" class="nav-link">
-              Schedule
-            </a>
-          </li>
-
-          <li>
-            <a href="#about" class="nav-link">
-              About Me
-            </a>
-          </li>
-
-          <li>
-            <a href="#contact" class="nav-link">
-              Contact
-            </a>
-          </li>
-
-          <span
-            class="nav-indicator"
-            aria-hidden="true"
-          ></span>
-        </ul>
-      </nav>
-    </header>
-
-    <main>
-      <section id="home" class="intro-section">
-        <div
-          class="home-slideshow"
-          aria-hidden="true"
-        >
-          <img
-            src="pic/pic_1.webp"
-            alt=""
-            class="home-slide is-visible"
-          />
-
-          <img
-            src="pic/pic_2.webp"
-            alt=""
-            class="home-slide"
-          />
-
-          <img
-            src="pic/pic_3.webp"
-            alt=""
-            class="home-slide"
-          />
-
-          <img
-            src="pic/pic_4.webp"
-            alt=""
-            class="home-slide"
-          />
-
-          <img
-            src="pic/pic_5.webp"
-            alt=""
-            class="home-slide"
-          />
-        </div>
-
-        <div class="home-shade"></div>
-
-        <div class="intro-content">
-          <h2>Find Balance, Peace, Strength</h2>
-
-          <p>
-            Move through a structured, breath-led practice cultivating
-            resilience, stability and focus.
-          </p>
-
-          <a
-            href="mailto:info-ekamyoga@gmail.com"
-            class="btn"
-          >
-            Get in Touch
-          </a>
-        </div>
-      </section>
-
-      <section
-        id="practice"
-        class="section practice-section"
-      >
+      <div class="practice-copy" data-reveal>
+        <p class="eyebrow">The Practice</p>
         <h2>Ashtanga Yoga</h2>
+        <p>Ashtanga Yoga is a structured, breath-led practice that links movement with a steady sequence of postures. Each position flows into the next through coordinated transitions, creating a continuous rhythm of strength, mobility, balance, and concentration. The repeated sequence offers a clear framework while allowing the practitioner to notice gradual changes in breath, alignment, endurance, and awareness. The practice can be adapted to individual experience and ability, making progress steady rather than forced. Over time, Ashtanga Yoga may support greater overall physical resilience, flexibility, focus, emotional steadiness, and a deeper sense of connection between breath, body, and attention during daily life.</p>
+      </div>
+    </section>
 
-        <div class="scroll-image-box">
-          <img
-            src="pic/ashtanga.webp"
-            alt="Ashtanga yoga practice"
-            class="scroll-bg-img"
-          />
+    <section id="schedule" class="schedule-section">
+      <div class="schedule-copy section-shell">
+        <h2 data-reveal>Schedule</h2>
 
-          <div class="scroll-image-shade"></div>
-
-          <div class="scroll-image-content practice-content">
-            <p>
-              Ashtanga Yoga is a structured, breath-led practice that links
-              movement with a steady sequence of postures. Each position flows
-              into the next through coordinated transitions, creating a
-              continuous rhythm of strength, mobility, balance, and
-              concentration. The repeated sequence offers a clear framework
-              while allowing the practitioner to notice gradual changes in
-              breath, alignment, endurance, and awareness. The practice can be
-              adapted to individual experience and ability, making progress
-              steady rather than forced. Over time, Ashtanga Yoga may support
-              greater overall physical resilience, flexibility, focus,
-              emotional steadiness, and a deeper sense of connection between
-              breath, body, and attention during daily life.
-            </p>
-          </div>
+        <div class="schedule-details">
+          <p class="schedule-time" data-reveal>Tuesday morning: 6:30 AM–8:00 AM</p>
+          <p class="schedule-location" data-reveal>Im Westfeld, Sankt Johann, Basel</p>
+          <p class="schedule-invitation" data-reveal>Come and try it out — your first lesson is free!</p>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="schedule" class="section">
-        <h2>Schedule</h2>
-
-        <div class="schedule-list">
-          <p class="schedule-time">
-            Tuesday morning: 6:30 AM–8:00 AM
-          </p>
-
-          <p class="schedule-location">
-            Im Westfeld, Sankt Johann, Basel
-          </p>
-
-          <p class="schedule-invitation">
-            Come and try it out — your first lesson is free!
-          </p>
+    <section id="about" class="about-section">
+      <div class="about-layout section-shell">
+        <div class="about-copy" data-reveal>
+          <h2>About Me</h2>
+          <p>I discovered Ashtanga yoga over 10 years ago, and it has been my daily companion ever since. Yoga became my safe space, offering me a way to step out of my mind and into my body, and it has been a steady support through my studies, pregnancy, postpartum, and now motherhood.<br /><br />Over the years, I cultivated my practice with dedicated teachers in Italy and Boston, and further refined it through workshops and in-depth retreats. I recently completed a 250 hours training with my teachers Lucia and Roberto at Bottega Yoga in Bologna.<br /><br />I believe Ashtanga yoga is a transformative path and, if practiced at any level, can bring awareness and support to everyday life. ~ This practice is too beautiful not to be shared.</p>
         </div>
-      </section>
 
-      <section
-        id="about"
-        class="section about-section"
-      >
-        <h2>About Me</h2>
-
-        <div class="scroll-image-box">
-          <img
-            src="pic/About.webp"
-            alt="Silvia practicing yoga"
-            class="scroll-bg-img"
-          />
-
-          <div class="scroll-image-shade"></div>
-
-          <div class="scroll-image-content about-content">
-            <p>
-              I discovered Ashtanga yoga over 10 years ago, and it has been my
-              daily companion ever since. Yoga became my safe space, offering me
-              a way to step out of my mind and into my body, and it has been a
-              steady support through my studies, pregnancy, postpartum, and now
-              motherhood.
-
-              Over the years, I cultivated my practice with dedicated teachers
-              in Italy and Boston, and further refined it through workshops and
-              in-depth retreats. I recently completed a 250 hours training with
-              my teachers Lucia and Roberto at Bottega Yoga in Bologna.
-
-              I believe Ashtanga yoga is a transformative path and, if practiced
-              at any level, can bring awareness and support to everyday life.
-              ~ This practice is too beautiful not to be shared.
-            </p>
-          </div>
+        <div class="about-gallery" data-reveal>
+          <figure class="about-main">
+            <img src="pic/About.webp" alt="Silvia practicing yoga" />
+          </figure>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section
-        id="contact"
-        class="section contact-section"
-      >
+    <section id="contact" class="contact-section">
+      <div class="contact-heading" data-reveal>
         <h2>Contact</h2>
+      </div>
 
-        <div class="social-links">
-          <a
-            class="social-link"
-            href="https://www.instagram.com/silvia.ashtangayoga/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Visit Silvia Ashtanga Yoga on Instagram"
-          >
-            <img
-              src="pic/Instagram_Glyph_White.svg"
-              alt=""
-              class="social-icon"
-            />
-          </a>
+      <div class="contact-layout section-shell">
+        <div class="contact-card" data-reveal>
+          <div class="social-links">
+            <a href="https://www.instagram.com/silvia.ashtangayoga/" target="_blank" rel="noopener noreferrer" aria-label="Visit Silvia Ashtanga Yoga on Instagram">
+              <img src="pic/Instagram_Glyph_White.svg" alt="" />
+            </a>
+            <a href="https://wa.me/410123456789" target="_blank" rel="noopener noreferrer" aria-label="Contact EKAM YOGA on WhatsApp">
+              <img src="pic/Print_Glyph_White_CMYK_2026.svg" alt="" />
+            </a>
+            <a href="mailto:info-ekamyoga@gmail.com" aria-label="Email EKAM YOGA">
+              <img src="pic/email.svg" alt="" />
+            </a>
+          </div>
 
-          <a
-            class="social-link"
-            href="https://wa.me/410123456789"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Contact EKAM YOGA on WhatsApp"
-          >
-            <img
-              src="pic/Print_Glyph_White_CMYK_2026.svg"
-              alt=""
-              class="social-icon"
-            />
-          </a>
-
-          <a
-            class="social-link"
-            href="mailto:info-ekamyoga@gmail.com"
-            aria-label="Email EKAM YOGA"
-          >
-            <img
-              src="pic/email.svg"
-              alt=""
-              class="social-icon"
-            />
+          <a class="location-link" href="https://www.google.com/search?tbm=isch&q=Basel%2C+Switzerland" target="_blank" rel="noopener noreferrer" aria-label="View images of Basel, Switzerland">
+            <img src="pic/location-pointer-white-icon.svg" alt="" />
+            <span>Basel, Switzerland</span>
           </a>
         </div>
+      </div>
+    </section>
+  </main>
 
-        <a
-          class="location-link"
-          href="https://www.google.com/search?tbm=isch&q=Basel%2C+Switzerland"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="View images of Basel, Switzerland"
-        >
-          <img
-            src="pic/location-pointer-white-icon.svg"
-            alt=""
-            class="location-icon"
-            aria-hidden="true"
-          />
+  <footer>
+    <p>&copy; 2026 EKAM YOGA. All rights reserved.</p>
+  </footer>
 
-          <span>Basel, Switzerland</span>
-        </a>
-      </section>
-    </main>
+  <script>
+    const header = document.querySelector('.site-header');
+    const menuButton = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('.site-nav');
+    const navigationLinks = [...document.querySelectorAll('.site-nav a[href^="#"]')];
+    const homeSection = document.querySelector('#home');
 
-    <footer>
-      <p>&copy; 2026 EKAM YOGA. All rights reserved.</p>
-    </footer>
+    function updateHeader() {
+      if (!header || !homeSection) return;
 
-    <script>
-      /*
-        Only the main page background fades.
+      const homeBottom = homeSection.getBoundingClientRect().bottom;
+      const hasLeftHome = homeBottom <= header.offsetHeight;
 
-        Section backgrounds and text colors remain static.
-      */
-      const pagePalette = [
-        [104, 117, 109],
-        [161, 167, 158],
-        [222, 206, 191],
-        [244, 243, 241],
-      ];
+      header.classList.toggle('is-scrolled', hasLeftHome);
+    }
 
-      const pageSections = Array.from(
-        document.querySelectorAll("main section[id]"),
-      );
+    updateHeader();
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    window.addEventListener('resize', updateHeader);
 
-      const navigationLinks = Array.from(
-        document.querySelectorAll(".nav-link"),
-      );
+    if (menuButton && navigation) {
+      menuButton.addEventListener('click', () => {
+        const open = navigation.classList.toggle('is-open');
+        menuButton.classList.toggle('is-open', open);
+        menuButton.setAttribute('aria-expanded', String(open));
+      });
 
-      const navigationMenu =
-        document.querySelector(".nav-menu");
-
-      const navigationIndicator =
-        document.querySelector(".nav-indicator");
-
-      const pageHeader =
-        document.querySelector("header");
-
-      const rootElement =
-        document.documentElement;
-
-      let ticking = false;
-      let currentSectionId = "home";
-
-      function clamp(value, minimum, maximum) {
-        return Math.min(
-          Math.max(value, minimum),
-          maximum,
-        );
-      }
-
-      function mixColorValues(
-        color1,
-        color2,
-        amount,
-      ) {
-        return [
-          Math.round(
-            color1[0] +
-              (color2[0] - color1[0]) *
-                amount,
-          ),
-
-          Math.round(
-            color1[1] +
-              (color2[1] - color1[1]) *
-                amount,
-          ),
-
-          Math.round(
-            color1[2] +
-              (color2[2] - color1[2]) *
-                amount,
-          ),
-        ];
-      }
-
-      function colorToCSS(color) {
-        return `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
-      }
-
-      function getPaletteColor(
-        palette,
-        progress,
-      ) {
-        const safeProgress = clamp(
-          progress,
-          0,
-          1,
-        );
-
-        const numberOfSegments =
-          palette.length - 1;
-
-        const exactIndex =
-          safeProgress *
-          numberOfSegments;
-
-        const startIndex = Math.min(
-          Math.floor(exactIndex),
-          palette.length - 1,
-        );
-
-        const endIndex = Math.min(
-          startIndex + 1,
-          palette.length - 1,
-        );
-
-        const segmentProgress =
-          exactIndex - startIndex;
-
-        return mixColorValues(
-          palette[startIndex],
-          palette[endIndex],
-          segmentProgress,
-        );
-      }
-
-      function updatePageBackground() {
-        const scrollTop = window.scrollY;
-
-        const maximumScroll =
-          document.documentElement.scrollHeight -
-          window.innerHeight;
-
-        const scrollProgress =
-          maximumScroll <= 0
-            ? 0
-            : clamp(
-                scrollTop / maximumScroll,
-                0,
-                1,
-              );
-
-        const pageColor = getPaletteColor(
-          pagePalette,
-          scrollProgress,
-        );
-
-        rootElement.style.setProperty(
-          "--page-background",
-          colorToCSS(pageColor),
-        );
-      }
-
-      /*
-        Applies the same reverse-scroll movement to every
-        image box in The Practice and About Me.
-      */
-      function updateScrollImages() {
-        const imageBoxes =
-          document.querySelectorAll(
-            ".scroll-image-box",
-          );
-
-        const viewportHeight =
-          window.innerHeight;
-
-        imageBoxes.forEach((imageBox) => {
-          const image =
-            imageBox.querySelector(
-              ".scroll-bg-img",
-            );
-
-          if (!image) {
-            return;
-          }
-
-          const boxRect =
-            imageBox.getBoundingClientRect();
-
-          if (
-            boxRect.bottom < 0 ||
-            boxRect.top > viewportHeight
-          ) {
-            return;
-          }
-
-          const boxHeight =
-            imageBox.offsetHeight;
-
-          const imageHeight =
-            image.offsetHeight;
-
-          const maximumImageMovement =
-            Math.max(
-              imageHeight - boxHeight,
-              0,
-            );
-
-          const scrollRange =
-            viewportHeight + boxHeight;
-
-          let progress =
-            (viewportHeight - boxRect.top) /
-            scrollRange;
-
-          progress = clamp(
-            progress,
-            0,
-            1,
-          );
-
-          const movement =
-            -maximumImageMovement *
-            (1 - progress);
-
-          image.style.transform =
-            `translate3d(-50%, ${movement}px, 0)`;
+      navigationLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+          navigation.classList.remove('is-open');
+          menuButton.classList.remove('is-open');
+          menuButton.setAttribute('aria-expanded', 'false');
         });
-      }
+      });
+    }
 
-      function moveNavigationIndicator(
-        activeLink,
-      ) {
-        if (
-          !activeLink ||
-          !navigationMenu ||
-          !navigationIndicator
-        ) {
-          return;
-        }
-
-        const menuRect =
-          navigationMenu.getBoundingClientRect();
-
-        const linkRect =
-          activeLink.getBoundingClientRect();
-
-        const isMobile =
-          window.innerWidth <= 1000;
-
-        let indicatorWidth;
-        let indicatorLeft;
-
-        if (isMobile) {
-          indicatorWidth = 42;
-
-          indicatorLeft =
-            linkRect.left -
-            menuRect.left +
-            (linkRect.width -
-              indicatorWidth) /
-              2;
-        } else {
-          indicatorWidth =
-            linkRect.width;
-
-          indicatorLeft =
-            linkRect.left -
-            menuRect.left;
-        }
-
-        const indicatorTop =
-          linkRect.bottom -
-          menuRect.top -
-          1;
-
-        navigationIndicator.style.width =
-          `${indicatorWidth}px`;
-
-        navigationIndicator.style.left =
-          `${indicatorLeft}px`;
-
-        navigationIndicator.style.top =
-          `${indicatorTop}px`;
-      }
-
-      function setActiveNavigation(
-        sectionId,
-      ) {
-        const activeLink =
-          navigationLinks.find(
-            (link) =>
-              link.getAttribute("href") ===
-              `#${sectionId}`,
-          );
-
-        if (!activeLink) {
-          return;
-        }
+    const sections = [...document.querySelectorAll('main section[id]')];
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
 
         navigationLinks.forEach((link) => {
           link.classList.toggle(
-            "active",
-            link === activeLink,
+            'is-active',
+            link.getAttribute('href') === `#${entry.target.id}`,
           );
         });
+      });
+    }, { rootMargin: '-38% 0px -55% 0px' });
 
-        currentSectionId = sectionId;
+    sections.forEach((section) => sectionObserver.observe(section));
 
-        moveNavigationIndicator(
-          activeLink,
-        );
+    const revealItems = [...document.querySelectorAll('[data-reveal]')];
+    const revealStates = new WeakMap();
+
+    let lastRevealScrollY = window.scrollY;
+    let revealFrameRequested = false;
+
+    function getStableDocumentTop(element) {
+      let top = 0;
+      let current = element;
+
+      /*
+        offsetTop is unaffected by the reveal transform. This keeps the
+        trigger point stable while the element itself is animating.
+      */
+      while (current) {
+        top += current.offsetTop || 0;
+        current = current.offsetParent;
       }
 
-      function updateActiveNavigation() {
-        if (pageSections.length === 0) {
-          return;
-        }
+      return top;
+    }
 
-        const headerHeight =
-          pageHeader
-            ? pageHeader.offsetHeight
+    function measureRevealItems() {
+      revealItems.forEach((item) => {
+        const top = getStableDocumentTop(item);
+        const state = revealStates.get(item) || { visible: false };
+
+        state.top = top;
+        state.bottom = top + item.offsetHeight;
+        revealStates.set(item, state);
+      });
+    }
+
+    function setRevealOrigin(item, fromTop) {
+      item.classList.toggle('reveal-from-top', fromTop);
+      item.classList.toggle('reveal-from-bottom', !fromTop);
+    }
+
+    function updateRevealItems() {
+      const currentScrollY = window.scrollY;
+      const viewportHeight = window.innerHeight;
+      const viewportTop = currentScrollY;
+      const viewportBottom = currentScrollY + viewportHeight;
+
+      const direction =
+        currentScrollY > lastRevealScrollY
+          ? 1
+          : currentScrollY < lastRevealScrollY
+            ? -1
             : 0;
 
-        const activationPoint =
-          headerHeight +
-          window.innerHeight * 0.32;
+      /*
+        A smaller inner band reveals items. A larger outer buffer hides them.
+        The gap between these two zones is deliberate hysteresis, preventing
+        repeated on/off toggling when scrolling stops near a boundary.
+      */
+      const enterInset = Math.min(90, viewportHeight * 0.1);
+      const exitBuffer = Math.max(120, viewportHeight * 0.16);
+      const enterTop = viewportTop + enterInset;
+      const enterBottom = viewportBottom - enterInset;
 
-        let activeSection =
-          pageSections[0];
+      revealItems.forEach((item) => {
+        const state = revealStates.get(item);
+        if (!state) return;
 
-        pageSections.forEach((section) => {
-          const sectionTop =
-            section
-              .getBoundingClientRect()
-              .top;
+        const insideRevealBand =
+          state.bottom > enterTop &&
+          state.top < enterBottom;
 
-          if (
-            sectionTop <=
-            activationPoint
-          ) {
-            activeSection = section;
-          }
-        });
+        const safelyAbove =
+          state.bottom < viewportTop - exitBuffer;
 
-        const pageBottom =
-          window.scrollY +
-          window.innerHeight;
+        const safelyBelow =
+          state.top > viewportBottom + exitBuffer;
 
-        const documentHeight =
-          document.documentElement
-            .scrollHeight;
-
-        if (
-          pageBottom >=
-          documentHeight - 4
-        ) {
-          activeSection =
-            pageSections[
-              pageSections.length - 1
-            ];
-        }
-
-        if (
-          activeSection &&
-          activeSection.id !==
-            currentSectionId
-        ) {
-          setActiveNavigation(
-            activeSection.id,
-          );
-        }
-      }
-
-      function updatePageEffects() {
-        updatePageBackground();
-        updateScrollImages();
-        updateActiveNavigation();
-
-        ticking = false;
-      }
-
-      function requestPageUpdate() {
-        if (ticking) {
-          return;
-        }
-
-        ticking = true;
-
-        window.requestAnimationFrame(
-          updatePageEffects,
-        );
-      }
-
-      function startHomeSlideshow() {
-        const slides = Array.from(
-          document.querySelectorAll(
-            ".home-slide",
-          ),
-        );
-
-        if (slides.length < 2) {
-          return;
-        }
-
-        const displayTime = 5000;
-        const fadeTime = 2500;
-
-        let currentIndex = 0;
-        let transitionInProgress = false;
-
-        slides.forEach(
-          (slide, index) => {
-            slide.style.zIndex =
-              index === 0 ? "1" : "0";
-          },
-        );
-
-        window.setInterval(() => {
-          if (transitionInProgress) {
-            return;
+        if (insideRevealBand) {
+          if (!state.visible) {
+            setRevealOrigin(item, direction < 0);
+            item.classList.add('is-visible');
+            state.visible = true;
           }
 
-          transitionInProgress = true;
-
-          const outgoingSlide =
-            slides[currentIndex];
-
-          const nextIndex =
-            (currentIndex + 1) %
-            slides.length;
-
-          const incomingSlide =
-            slides[nextIndex];
-
-          incomingSlide.style.zIndex =
-            "2";
-
-          incomingSlide.classList.add(
-            "is-visible",
-          );
-
-          window.setTimeout(() => {
-            outgoingSlide.classList.remove(
-              "is-visible",
-            );
-
-            outgoingSlide.style.zIndex =
-              "0";
-
-            incomingSlide.style.zIndex =
-              "1";
-
-            currentIndex = nextIndex;
-            transitionInProgress = false;
-          }, fadeTime);
-        }, displayTime);
-      }
-
-      function setupMobileMenu() {
-        const menuButton =
-          document.querySelector(
-            ".menu-toggle",
-          );
-
-        if (
-          !menuButton ||
-          !navigationMenu
-        ) {
           return;
         }
 
-        menuButton.addEventListener(
-          "click",
-          () => {
-            const isOpen =
-              navigationMenu.classList.toggle(
-                "open",
-              );
+        /* Keep the current state inside the buffer zone. */
+        if (!safelyAbove && !safelyBelow) return;
 
-            menuButton.classList.toggle(
-              "open",
-              isOpen,
-            );
+        if (state.visible) {
+          item.classList.remove('is-visible');
+          state.visible = false;
+        }
 
-            menuButton.setAttribute(
-              "aria-expanded",
-              String(isOpen),
-            );
+        setRevealOrigin(item, safelyAbove);
+      });
 
-            window.setTimeout(() => {
-              const activeLink =
-                document.querySelector(
-                  ".nav-link.active",
-                );
+      lastRevealScrollY = currentScrollY;
+      revealFrameRequested = false;
+    }
 
-              moveNavigationIndicator(
-                activeLink,
-              );
-            }, 360);
-          },
-        );
+    function requestRevealUpdate() {
+      if (revealFrameRequested) return;
 
-        navigationLinks.forEach((link) => {
-          link.addEventListener(
-            "click",
-            () => {
-              navigationMenu.classList.remove(
-                "open",
-              );
+      revealFrameRequested = true;
+      window.requestAnimationFrame(updateRevealItems);
+    }
 
-              menuButton.classList.remove(
-                "open",
-              );
+    revealItems.forEach((item) => {
+      item.classList.add('reveal-from-bottom');
+      revealStates.set(item, { visible: false, top: 0, bottom: 0 });
+    });
 
-              menuButton.setAttribute(
-                "aria-expanded",
-                "false",
-              );
-            },
-          );
-        });
-      }
+    measureRevealItems();
+    updateRevealItems();
 
-      window.addEventListener(
-        "scroll",
-        requestPageUpdate,
-        {
-          passive: true,
-        },
-      );
+    window.addEventListener('scroll', requestRevealUpdate, { passive: true });
+    window.addEventListener('resize', () => {
+      measureRevealItems();
+      requestRevealUpdate();
+    });
 
-      window.addEventListener(
-        "resize",
-        () => {
-          requestPageUpdate();
+    window.addEventListener('load', () => {
+      measureRevealItems();
+      requestRevealUpdate();
+    });
 
-          window.requestAnimationFrame(
-            () => {
-              const activeLink =
-                document.querySelector(
-                  ".nav-link.active",
-                );
-
-              moveNavigationIndicator(
-                activeLink,
-              );
-            },
-          );
-        },
-      );
-
-      window.addEventListener(
-        "load",
-        () => {
-          setupMobileMenu();
-          startHomeSlideshow();
-          updatePageEffects();
-
-          window.requestAnimationFrame(
-            () => {
-              const activeLink =
-                document.querySelector(
-                  ".nav-link.active",
-                );
-
-              moveNavigationIndicator(
-                activeLink,
-              );
-            },
-          );
-        },
-      );
-    </script>
-  </body>
+    const slides = [...document.querySelectorAll('.hero-slide')];
+    if (slides.length > 1) {
+      let currentSlide = 0;
+      window.setInterval(() => {
+        slides[currentSlide].classList.remove('is-current');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('is-current');
+      }, 5200);
+    }
+  </script>
+</body>
 </html>
