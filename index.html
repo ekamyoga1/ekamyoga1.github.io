@@ -107,20 +107,20 @@
       </div>
 
       <div class="contact-layout section-shell">
-        <div class="contact-card" data-reveal data-reveal-role="body">
+        <div class="contact-card">
           <div class="social-links">
-            <a href="https://www.instagram.com/silvia.ashtangayoga/" target="_blank" rel="noopener noreferrer" aria-label="Visit Silvia Ashtanga Yoga on Instagram">
+            <a href="https://www.instagram.com/silvia.ashtangayoga/" target="_blank" rel="noopener noreferrer" aria-label="Visit Silvia Ashtanga Yoga on Instagram" data-reveal data-reveal-role="body" data-reveal-group="contact-body" data-reveal-target=".contact-card">
               <img src="pic/Instagram_Glyph_White.svg" alt="" />
             </a>
-            <a href="https://wa.me/410123456789" target="_blank" rel="noopener noreferrer" aria-label="Contact EKAM YOGA on WhatsApp">
+            <a href="https://wa.me/410123456789" target="_blank" rel="noopener noreferrer" aria-label="Contact EKAM YOGA on WhatsApp" data-reveal data-reveal-role="body" data-reveal-group="contact-body" data-reveal-target=".contact-card">
               <img src="pic/Print_Glyph_White_CMYK_2026.svg" alt="" />
             </a>
-            <a href="mailto:info-ekamyoga@gmail.com" aria-label="Email EKAM YOGA">
+            <a href="mailto:info-ekamyoga@gmail.com" aria-label="Email EKAM YOGA" data-reveal data-reveal-role="body" data-reveal-group="contact-body" data-reveal-target=".contact-card">
               <img src="pic/email.svg" alt="" />
             </a>
           </div>
 
-          <a class="location-link" href="https://www.google.com/search?tbm=isch&q=Basel%2C+Switzerland" target="_blank" rel="noopener noreferrer" aria-label="View images of Basel, Switzerland">
+          <a class="location-link" href="https://www.google.com/search?tbm=isch&q=Basel%2C+Switzerland" target="_blank" rel="noopener noreferrer" aria-label="View images of Basel, Switzerland" data-reveal data-reveal-role="body" data-reveal-group="contact-body" data-reveal-target=".contact-card">
             <img src="pic/location-pointer-white-icon.svg" alt="" />
             <span>Basel, Switzerland</span>
           </a>
@@ -234,13 +234,31 @@
       );
     }
 
+    function isPhoneContactItem(item) {
+      return (
+        schedulePhoneLayout.matches &&
+        item.matches('.social-links > a[data-reveal], .location-link[data-reveal]')
+      );
+    }
+
+    function isPhonePositionDrivenItem(item) {
+      return isPhoneScheduleItem(item) || isPhoneContactItem(item);
+    }
+
+    function getPhoneContactSequenceIndex(item, direction) {
+      if (!item.matches('.social-links > a[data-reveal]')) return 0;
+
+      const buttons = [...item.parentElement.querySelectorAll(':scope > a[data-reveal]')];
+      const index = Math.max(0, buttons.indexOf(item));
+      return direction > 0 ? index : Math.max(0, buttons.length - 1 - index);
+    }
+
     function getRevealMeasurementTarget(item) {
       /*
-        On phones, every Schedule row is measured independently so each one
-        appears only after its own position crosses the scroll trigger line.
-        Desktop keeps the shared Schedule target and its short timed stagger.
+        On phones, every Schedule row and Contact control is measured on its
+        own. Desktop keeps the shared group target and its short timed stagger.
       */
-      if (isPhoneScheduleItem(item)) return item;
+      if (isPhonePositionDrivenItem(item)) return item;
 
       /*
         In the phone layout, each full-width Practice/About image is its own
@@ -317,38 +335,50 @@
           title then body; upward scrolling naturally reveals body then title.
         */
         const phoneScheduleItem = isPhoneScheduleItem(item);
-        const phonePracticeTitle =
-          schedulePhoneLayout.matches &&
+        const phoneContactItem = isPhoneContactItem(item);
+        const phonePositionDrivenItem = phoneScheduleItem || phoneContactItem;
+        const replayingPracticeTitle =
           item.matches('.practice-title[data-reveal]');
-        const scheduleTriggerOffset = Math.min(130, viewportHeight * 0.18);
+        const basePhoneTriggerOffset = Math.min(130, viewportHeight * 0.18);
+        const contactSequenceOffset = phoneContactItem
+          ? getPhoneContactSequenceIndex(item, effectiveDirection) * 24
+          : 0;
+        const phoneTriggerOffset = basePhoneTriggerOffset + contactSequenceOffset;
+        const practiceTitleTriggerOffset = Math.min(
+          150,
+          Math.max(110, viewportHeight * 0.18),
+        );
+        const practiceTitleRevealLine = viewportBottom - practiceTitleTriggerOffset;
 
         /*
-          Phone Schedule rows cross one directional trigger line at a time.
-          Scrolling down uses a line near the bottom of the viewport; scrolling
-          up uses a line near the top. This makes the order fully scroll-driven:
-          1-2-3 downward and 3-2-1 upward, with no timing delay.
+          Phone Schedule rows and Contact controls cross directional trigger
+          lines instead of relying on timers. Contact circles use small indexed
+          offsets so they reveal left-to-right downward and right-to-left upward;
+          the Basel control follows its own lower document position.
         */
-        const insideRevealBand = phoneScheduleItem
+        const insideRevealBand = phonePositionDrivenItem
           ? effectiveDirection > 0
-            ? state.top <= viewportBottom - scheduleTriggerOffset &&
+            ? state.top <= viewportBottom - phoneTriggerOffset &&
               state.bottom > viewportTop - exitBuffer
-            : state.bottom >= viewportTop + scheduleTriggerOffset &&
+            : state.bottom >= viewportTop + phoneTriggerOffset &&
               state.top < viewportBottom + exitBuffer
-          : state.bottom > enterTop && state.top < enterBottom;
+          : replayingPracticeTitle
+            ? state.bottom > enterTop && state.top < practiceTitleRevealLine
+            : state.bottom > enterTop && state.top < enterBottom;
 
         const safelyAbove = state.bottom < viewportTop - exitBuffer;
         const safelyBelow = state.top > viewportBottom + exitBuffer;
 
         /*
-          The Practice title is immediately below the full-height hero. On a
-          phone, the normal exit buffer can otherwise keep it visible after the
-          user returns to the top. Reset it as soon as upward scrolling moves it
-          below the reveal line, so every new downward pass replays the effect.
+          The Practice title sits immediately below the full-height hero in
+          every layout. Use the same dedicated lower-viewport line for entry and
+          upward reset on phone, tablet, and desktop. Returning to the hero thus
+          hides the title, and the next downward pass always replays its effect.
         */
         if (
-          phonePracticeTitle &&
+          replayingPracticeTitle &&
           effectiveDirection < 0 &&
-          state.top >= enterBottom
+          state.top >= practiceTitleRevealLine
         ) {
           item.classList.remove('is-visible');
           state.visible = false;
@@ -470,15 +500,33 @@
         return;
       }
 
-      const copyRect = practiceCopy.getBoundingClientRect();
-      const headingRect = practiceHeading.getBoundingClientRect();
-      const bodyRect = practiceBody.getBoundingClientRect();
-      const targetHeight = Math.max(1, bodyRect.bottom - headingRect.top);
-      const topOffset = Math.max(0, headingRect.top - copyRect.top);
+      const copyTop = getStableDocumentTop(practiceCopy);
+      const headingTop = getStableDocumentTop(practiceHeading);
+      const bodyBottom = getStableDocumentTop(practiceBody) + practiceBody.offsetHeight;
+      const measuredTextHeight = Math.max(1, bodyBottom - headingTop);
+      const topOffset = Math.max(0, headingTop - copyTop);
       const naturalRatio = practiceDesktopImage.naturalWidth > 0 && practiceDesktopImage.naturalHeight > 0
         ? practiceDesktopImage.naturalWidth / practiceDesktopImage.naturalHeight
         : practiceImageFrame.offsetWidth / Math.max(1, practiceImageFrame.offsetHeight);
-      const targetWidth = targetHeight * naturalRatio;
+
+      /*
+        The image width and copy height depend on one another: a wider image
+        narrows the copy, which makes the copy taller. Cap the image column so
+        that resize calculations cannot enter a positive feedback loop. On
+        normal desktop widths the ideal title-to-body height is still used;
+        only compact desktop widths invoke the safety cap.
+      */
+      const sectionStyle = getComputedStyle(practiceSection);
+      const columnGap = Number.parseFloat(sectionStyle.columnGap) || 0;
+      const sectionWidth = practiceSection.clientWidth;
+      const minimumCopyWidth = Math.min(560, Math.max(340, sectionWidth * 0.48));
+      const maximumImageWidth = Math.max(220, Math.min(
+        sectionWidth * 0.42,
+        sectionWidth - columnGap - minimumCopyWidth,
+      ));
+      const idealWidth = measuredTextHeight * naturalRatio;
+      const targetWidth = Math.min(idealWidth, maximumImageWidth);
+      const targetHeight = targetWidth / Math.max(naturalRatio, 0.01);
 
       practiceSection.style.setProperty('--practice-image-fitted-width', `${targetWidth.toFixed(2)}px`);
       practiceSection.style.setProperty('--practice-image-fitted-height', `${targetHeight.toFixed(2)}px`);
@@ -530,12 +578,23 @@
         return;
       }
 
-      const copyRect = aboutCopy.getBoundingClientRect();
-      const headingRect = aboutHeading.getBoundingClientRect();
-      const bodyRect = aboutBody.getBoundingClientRect();
-      const targetHeight = Math.max(1, bodyRect.bottom - headingRect.top);
-      const topOffset = Math.max(0, headingRect.top - copyRect.top);
-      const targetWidth = targetHeight * getPracticeImageRatio();
+      const copyTop = getStableDocumentTop(aboutCopy);
+      const headingTop = getStableDocumentTop(aboutHeading);
+      const bodyBottom = getStableDocumentTop(aboutBody) + aboutBody.offsetHeight;
+      const measuredTextHeight = Math.max(1, bodyBottom - headingTop);
+      const topOffset = Math.max(0, headingTop - copyTop);
+      const practiceRatio = getPracticeImageRatio();
+      const layoutStyle = getComputedStyle(aboutLayout);
+      const columnGap = Number.parseFloat(layoutStyle.columnGap) || 0;
+      const layoutWidth = aboutLayout.clientWidth;
+      const minimumCopyWidth = Math.min(620, Math.max(340, layoutWidth * 0.52));
+      const maximumImageWidth = Math.max(210, Math.min(
+        layoutWidth * 0.42,
+        layoutWidth - columnGap - minimumCopyWidth,
+      ));
+      const idealWidth = measuredTextHeight * practiceRatio;
+      const targetWidth = Math.min(idealWidth, maximumImageWidth);
+      const targetHeight = targetWidth / Math.max(practiceRatio, 0.01);
 
       aboutLayout.style.setProperty('--about-image-fitted-width', `${targetWidth.toFixed(2)}px`);
       aboutLayout.style.setProperty('--about-image-fitted-height', `${targetHeight.toFixed(2)}px`);
@@ -650,17 +709,32 @@
     }
 
     if (window.ResizeObserver) {
-      if (practiceCopy) {
-        const practiceCopyObserver = new ResizeObserver(() => {
+      /*
+        Observe the stable section containers rather than the copy columns.
+        Observing a copy column whose width is changed by the calculation can
+        retrigger the calculation indefinitely during browser resizing.
+      */
+      if (practiceSection) {
+        let lastPracticeSectionWidth = 0;
+        const practiceSectionObserver = new ResizeObserver((entries) => {
+          const nextWidth = entries[0]?.contentRect.width || 0;
+          if (Math.abs(nextWidth - lastPracticeSectionWidth) < 0.5) return;
+          lastPracticeSectionWidth = nextWidth;
           requestDesktopPracticeImageFit();
           requestDesktopAboutImageFit();
         });
-        practiceCopyObserver.observe(practiceCopy);
+        practiceSectionObserver.observe(practiceSection);
       }
 
-      if (aboutCopy) {
-        const aboutCopyObserver = new ResizeObserver(requestDesktopAboutImageFit);
-        aboutCopyObserver.observe(aboutCopy);
+      if (aboutLayout) {
+        let lastAboutLayoutWidth = 0;
+        const aboutLayoutObserver = new ResizeObserver((entries) => {
+          const nextWidth = entries[0]?.contentRect.width || 0;
+          if (Math.abs(nextWidth - lastAboutLayoutWidth) < 0.5) return;
+          lastAboutLayoutWidth = nextWidth;
+          requestDesktopAboutImageFit();
+        });
+        aboutLayoutObserver.observe(aboutLayout);
       }
     }
 

@@ -432,8 +432,38 @@ br.desktop-schedule-break {
   transition-delay: 0.16s;
 }
 
+.social-links a:nth-child(2) {
+  --contact-reveal-delay: 0.08s;
+}
+
+.social-links a:nth-child(3) {
+  --contact-reveal-delay: 0.16s;
+}
+
+.location-link[data-reveal] {
+  --contact-reveal-delay: 0.24s;
+}
+
+.social-links a[data-reveal],
+.location-link[data-reveal] {
+  transition-property: opacity, transform, color, background-color, border-color;
+  transition-duration: 0.85s, 0.85s, 0.25s, 0.25s, 0.25s;
+  transition-timing-function: ease;
+  transition-delay:
+    var(--contact-reveal-delay, 0s),
+    var(--contact-reveal-delay, 0s),
+    0s,
+    0s,
+    0s;
+}
+
 .schedule-details p:not(.is-visible) {
   transition-delay: 0s;
+}
+
+.social-links a[data-reveal]:not(.is-visible),
+.location-link[data-reveal]:not(.is-visible) {
+  --contact-reveal-delay: 0s;
 }
 
 .about-section {
@@ -777,9 +807,14 @@ footer {
     transform: translateX(-50%);
   }
 
-  /* Each phone row is revealed by its own scroll position, never a timer. */
+  /* Phone Schedule and Contact items are position-driven, never timer-driven. */
   .schedule-details p {
     transition-delay: 0s !important;
+  }
+
+  .social-links a[data-reveal],
+  .location-link[data-reveal] {
+    --contact-reveal-delay: 0s !important;
   }
 
 
