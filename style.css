@@ -882,11 +882,20 @@ footer {
   }
 
   .mobile-inline-image {
+    position: relative;
     display: block;
     overflow: hidden;
+    /* Force Safari to clip the transformed image inside the reserved float box. */
+    contain: paint;
+    isolation: isolate;
+    clip-path: inset(0);
+    -webkit-clip-path: inset(0);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
     /* Align the crop with the visible top of the paragraph's first line. */
     margin-top: calc(var(--section-title-gap) + 5px);
-    margin-bottom: 12px;
+    /* Reserve extra clearance below the crop before text can return to full width. */
+    margin-bottom: 26px;
     /* Use the float's full rectangular margin box for reliable iPhone Safari wrapping. */
     shape-outside: none;
     -webkit-shape-outside: none;
@@ -895,10 +904,13 @@ footer {
   .mobile-inline-image img {
     width: 100%;
     height: 100%;
+    max-width: none;
     object-fit: cover;
     opacity: 1;
     transform-origin: center;
     will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
   }
 
   .mobile-practice-image {
