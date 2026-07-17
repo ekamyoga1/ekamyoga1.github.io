@@ -807,14 +807,9 @@ footer {
     transform: translateX(-50%);
   }
 
-  /* Phone Schedule and Contact items are position-driven, never timer-driven. */
+  /* Phone Schedule rows remain position-driven; Contact keeps its shared stagger. */
   .schedule-details p {
     transition-delay: 0s !important;
-  }
-
-  .social-links a[data-reveal],
-  .location-link[data-reveal] {
-    --contact-reveal-delay: 0s !important;
   }
 
 

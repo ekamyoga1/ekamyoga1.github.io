@@ -234,29 +234,14 @@
       );
     }
 
-    function isPhoneContactItem(item) {
-      return (
-        schedulePhoneLayout.matches &&
-        item.matches('.social-links > a[data-reveal], .location-link[data-reveal]')
-      );
-    }
-
     function isPhonePositionDrivenItem(item) {
-      return isPhoneScheduleItem(item) || isPhoneContactItem(item);
-    }
-
-    function getPhoneContactSequenceIndex(item, direction) {
-      if (!item.matches('.social-links > a[data-reveal]')) return 0;
-
-      const buttons = [...item.parentElement.querySelectorAll(':scope > a[data-reveal]')];
-      const index = Math.max(0, buttons.indexOf(item));
-      return direction > 0 ? index : Math.max(0, buttons.length - 1 - index);
+      return isPhoneScheduleItem(item);
     }
 
     function getRevealMeasurementTarget(item) {
       /*
-        On phones, every Schedule row and Contact control is measured on its
-        own. Desktop keeps the shared group target and its short timed stagger.
+        On phones, every Schedule row is measured on its own. Contact controls
+        use the shared card trigger and timed stagger in every layout.
       */
       if (isPhonePositionDrivenItem(item)) return item;
 
@@ -334,16 +319,10 @@
           enters. Because titles sit above bodies, downward scrolling reveals
           title then body; upward scrolling naturally reveals body then title.
         */
-        const phoneScheduleItem = isPhoneScheduleItem(item);
-        const phoneContactItem = isPhoneContactItem(item);
-        const phonePositionDrivenItem = phoneScheduleItem || phoneContactItem;
+        const phonePositionDrivenItem = isPhoneScheduleItem(item);
         const replayingPracticeTitle =
           item.matches('.practice-title[data-reveal]');
-        const basePhoneTriggerOffset = Math.min(130, viewportHeight * 0.18);
-        const contactSequenceOffset = phoneContactItem
-          ? getPhoneContactSequenceIndex(item, effectiveDirection) * 24
-          : 0;
-        const phoneTriggerOffset = basePhoneTriggerOffset + contactSequenceOffset;
+        const phoneTriggerOffset = Math.min(130, viewportHeight * 0.18);
         const practiceTitleTriggerOffset = Math.min(
           150,
           Math.max(110, viewportHeight * 0.18),
@@ -351,10 +330,9 @@
         const practiceTitleRevealLine = viewportBottom - practiceTitleTriggerOffset;
 
         /*
-          Phone Schedule rows and Contact controls cross directional trigger
-          lines instead of relying on timers. Contact circles use small indexed
-          offsets so they reveal left-to-right downward and right-to-left upward;
-          the Basel control follows its own lower document position.
+          Phone Schedule rows cross directional trigger lines instead of relying
+          on timers. Contact controls use one shared trigger and the same short
+          timed stagger on phone, tablet, and desktop.
         */
         const insideRevealBand = phonePositionDrivenItem
           ? effectiveDirection > 0
