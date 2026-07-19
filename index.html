@@ -635,8 +635,8 @@
             ? Math.max(0, Math.min(1, (window.innerHeight - crop.top) / journeyLength))
             : 0.5;
 
-          /* Two successive 20% reductions: 0.8 × 0.8 = 0.64. */
-          movement = travelLimit * 0.64 * (1 - 2 * journeyProgress);
+          /* Phone Practice movement: 20% reduction, then a further 30% reduction. */
+          movement = travelLimit * 0.3584 * (1 - 2 * journeyProgress);
         } else {
           const movementLimit = image.closest('.practice-image') ? 36 : 20;
           const requestedMovement = (viewportCenter - cropCenter) * 0.075;
