@@ -23,7 +23,7 @@
       <a class="is-active" href="#home">Home</a>
       <a href="#practice">The Practice</a>
       <a href="#schedule">Schedule</a>
-      <a href="#about">About Me</a>
+      <a href="#about">Bio</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -71,8 +71,8 @@
         <h2 data-reveal data-reveal-role="title">Schedule</h2>
 
         <div class="schedule-details">
-          <p class="schedule-time" data-reveal data-reveal-role="body" data-reveal-group="schedule-body" data-reveal-target=".schedule-details">Tuesday morning <br class="desktop-schedule-break" />6:30 AM–8:00 AM</p>
-          <p class="schedule-location" data-reveal data-reveal-role="body" data-reveal-group="schedule-body" data-reveal-target=".schedule-details">Im Westfeld, Sankt Johann, Basel</p>
+          <p class="schedule-time" data-reveal data-reveal-role="body" data-reveal-group="schedule-body" data-reveal-target=".schedule-details">Coming soon!</p>
+          <p class="schedule-location" data-reveal data-reveal-role="body" data-reveal-group="schedule-body" data-reveal-target=".schedule-details">Coming soon!</p>
           <p class="schedule-invitation" data-reveal data-reveal-role="body" data-reveal-group="schedule-body" data-reveal-target=".schedule-details">Come and try it out <br class="desktop-schedule-break" />— your first lesson is free!</p>
         </div>
       </div>
@@ -81,7 +81,10 @@
     <section id="about" class="about-section">
       <div class="about-layout section-shell">
         <div class="about-copy">
-          <h2 data-reveal data-reveal-role="title">About Me</h2>
+          <div class="about-title" data-reveal data-reveal-role="title">
+            <p class="eyebrow">Bio</p>
+            <h2>About Me</h2>
+          </div>
           <figure class="mobile-inline-image mobile-about-image" aria-hidden="true" data-reveal data-reveal-role="image">
             <img src="pic/About.webp" alt="" />
           </figure>
@@ -474,6 +477,7 @@
         practiceSection.style.removeProperty('--practice-image-fitted-width');
         practiceSection.style.removeProperty('--practice-image-fitted-height');
         practiceSection.style.removeProperty('--practice-image-top-offset');
+        practiceSection.style.removeProperty('--practice-image-fit-mode');
         practiceFitFrameRequested = false;
         return;
       }
@@ -504,11 +508,13 @@
       ));
       const idealWidth = measuredTextHeight * naturalRatio;
       const targetWidth = Math.min(idealWidth, maximumImageWidth);
-      const targetHeight = targetWidth / Math.max(naturalRatio, 0.01);
+      const targetHeight = measuredTextHeight;
+      const fitMode = idealWidth > maximumImageWidth + 0.5 ? 'cover' : 'contain';
 
       practiceSection.style.setProperty('--practice-image-fitted-width', `${targetWidth.toFixed(2)}px`);
       practiceSection.style.setProperty('--practice-image-fitted-height', `${targetHeight.toFixed(2)}px`);
       practiceSection.style.setProperty('--practice-image-top-offset', `${topOffset.toFixed(2)}px`);
+      practiceSection.style.setProperty('--practice-image-fit-mode', fitMode);
       practiceFitFrameRequested = false;
     }
 
@@ -572,7 +578,7 @@
       ));
       const idealWidth = measuredTextHeight * practiceRatio;
       const targetWidth = Math.min(idealWidth, maximumImageWidth);
-      const targetHeight = targetWidth / Math.max(practiceRatio, 0.01);
+      const targetHeight = measuredTextHeight;
 
       aboutLayout.style.setProperty('--about-image-fitted-width', `${targetWidth.toFixed(2)}px`);
       aboutLayout.style.setProperty('--about-image-fitted-height', `${targetHeight.toFixed(2)}px`);
