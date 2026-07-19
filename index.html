@@ -115,10 +115,10 @@
             <a href="https://www.instagram.com/silvia.ashtangayoga/" target="_blank" rel="noopener noreferrer" aria-label="Visit Silvia Ashtanga Yoga on Instagram" data-reveal data-reveal-role="body" data-reveal-group="contact-body" data-reveal-target=".contact-card">
               <img src="pic/Instagram_Glyph_White.svg" alt="" />
             </a>
-            <a href="https://wa.me/410123456789" target="_blank" rel="noopener noreferrer" aria-label="Contact EKAM YOGA on WhatsApp" data-reveal data-reveal-role="body" data-reveal-group="contact-body" data-reveal-target=".contact-card">
+            <a class="is-disabled" aria-disabled="true" tabindex="-1" data-tooltip="Coming soon!" aria-label="WhatsApp contact coming soon" data-reveal data-reveal-role="body" data-reveal-group="contact-body" data-reveal-target=".contact-card">
               <img src="pic/Print_Glyph_White_CMYK_2026.svg" alt="" />
             </a>
-            <a href="mailto:info-ekamyoga@gmail.com" aria-label="Email EKAM YOGA" data-reveal data-reveal-role="body" data-reveal-group="contact-body" data-reveal-target=".contact-card">
+            <a class="is-disabled" aria-disabled="true" tabindex="-1" data-tooltip="Coming soon!" aria-label="Email contact coming soon" data-reveal data-reveal-role="body" data-reveal-group="contact-body" data-reveal-target=".contact-card">
               <img src="pic/email.svg" alt="" />
             </a>
           </div>
@@ -730,6 +730,29 @@
       });
       reducedMotionPreference.addEventListener('change', requestReverseScrollUpdate);
     }
+
+    const disabledContactLinks = [...document.querySelectorAll('.social-links a.is-disabled')];
+    let contactTooltipTimer;
+
+    function hideDisabledContactTooltips() {
+      disabledContactLinks.forEach((link) => link.classList.remove('is-tooltip-visible'));
+      window.clearTimeout(contactTooltipTimer);
+    }
+
+    disabledContactLinks.forEach((link) => {
+      link.addEventListener('pointerdown', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        hideDisabledContactTooltips();
+        link.classList.add('is-tooltip-visible');
+        contactTooltipTimer = window.setTimeout(hideDisabledContactTooltips, 1800);
+      });
+
+      link.addEventListener('click', (event) => event.preventDefault());
+    });
+
+    document.addEventListener('pointerdown', hideDisabledContactTooltips);
+    window.addEventListener('scroll', hideDisabledContactTooltips, { passive: true });
 
     const slides = [...document.querySelectorAll('.hero-slide')];
     if (slides.length > 1) {

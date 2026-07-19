@@ -573,6 +573,7 @@ br.desktop-schedule-break {
 }
 
 .social-links a {
+  position: relative;
   flex: 0 0 46px;
   width: 46px;
   height: 46px;
@@ -588,10 +589,44 @@ br.desktop-schedule-break {
     border-color 0.25s ease;
 }
 
-.social-links a:hover {
+.social-links a:not(.is-disabled):hover {
   color: var(--white);
   background: var(--charcoal);
   border-color: var(--charcoal);
+}
+
+.social-links a.is-disabled {
+  color: #8d918b;
+  background: #e2e3df;
+  border-color: #b8bbb5;
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.social-links a.is-disabled::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 9px);
+  z-index: 2;
+  padding: 5px 8px;
+  color: var(--white);
+  background: var(--charcoal);
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.social-links a.is-disabled:hover::after,
+.social-links a.is-disabled.is-tooltip-visible::after {
+  opacity: 1;
+  visibility: visible;
 }
 
 .social-links img {
@@ -602,8 +637,13 @@ br.desktop-schedule-break {
   transition: filter 0.25s ease;
 }
 
-.social-links a:hover img {
+.social-links a:not(.is-disabled):hover img {
   filter: brightness(0) invert(1);
+}
+
+.social-links a.is-disabled img {
+  filter: brightness(0);
+  opacity: 0.42;
 }
 
 .location-link {
